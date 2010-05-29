@@ -1,0 +1,64 @@
+Programa de Alarmas del IIMAS
+==============================
+
+1. Revisión del mapeo de puertos, ubicación física y mapas 
+2. Refactoring del sistema
+3. Módulo de generación de mapas
+4. Módulo de inventario
+5. Despliegue del sistema por departamento del IIMAS
+6. Pruebas Finales
+
+
+Tiempo de desarrollo
+=============================
+
+10 días 
+
+Requerimientos por módulo
+==========================
+
+Centinela
+----------
+1. Administración de estados y bitacoras
+2. Inicialización de mapas
+3. Ciclo de monitoreo 
+4. Comparación de estados para detectar diferencias
+5. Asignación de colores para creación de mapas
+6. Configuración de mapas en base a la comparación
+7. Configuración del sonido en el equipo previo a hacer sonar la alarma
+
+Alarma
+-------
+1. Mandar llamar el sonido de alarma
+2. Mandar sintetizar la ubicación del problema
+3. Resetear el activador de la alarma al terminar de ejecutarse
+
+Control centinela
+------------------
+1. Obtener el id del proceso de centinela
+2. Iniciar, detener, reiniciar, silenciar el proceso de centinela
+3. Reportar status de la alarma (¿Esta sonando?)
+
+Cambia Permisos
+----------------
+1. Permite activar/desactivar la alarma para un usuario en específico
+
+Directorio mapas
+-----------------
+1. Repositorio web de las paginas con los mapas
+
+Directorio alarmas
+-------------------
+1. Histórico (archivos resultado general)
+
+
+Ventajas sobre el sistema anterior
+-----------------------------------
+inventario
+portabilidad (lenguaje)
+
+
+Notas
+------
+Cualquier corrección al mapeo revisado en el punto 1 de esta propuesta se cobrara por separado
+Diferenciar entre el evento de conectar un equipo que no existia y un equipo que existe y se desconecta. 

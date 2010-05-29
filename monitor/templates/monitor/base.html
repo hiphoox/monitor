@@ -1,0 +1,66 @@
+{% load i18n %}
+{% load ttmedia %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8;charset=utf-8" />
+	<title>
+		Monitor | {% block title %}{% endblock %}
+	</title>
+	<link rel="stylesheet" href="{% tt_media_prefix %}css/basics.css" type="text/css" /> 
+	<link rel="stylesheet" href="{% tt_media_prefix %}css/frontpag.css" type="text/css" /> 
+	<link rel="stylesheet" href="{% tt_media_prefix %}css/admin-forms.css" type="text/css" />
+</head>
+
+<body class="frontpage">
+		
+	<div id="navigation">
+		<ul>
+			<li id="nav-home" >
+				<a href={%url monitor.views.main_page%}>Monitor</a> 
+			</li>
+			<li id="nav-apps" class={{ activities_class }}>
+				<a href={%url monitor.views.activities_page%}>{% trans 'Maps' %}</a>
+			</li>
+			<li id="nav-blog" class={{ reports_class }}>
+				<a href={%url monitor.views.reports_page%}>{% trans 'Reports' %}</a>
+			</li>
+			<li id="nav-goodies" class={{ misc_class }}>
+				<a href={%url monitor.views.misc_page%}>{% trans 'Admin' %}</a>
+			</li>
+			<li id="nav-about" class={{ about_class }}>
+				<a href={%url monitor.views.about_page%}>{% trans 'About' %}</a>
+			</li>
+			<li id="nav-support" class={{ help_class }}>
+				<a href={%url monitor.views.help_page%}>{% trans 'Help' %}</a>
+			</li>			
+			{% if user.is_authenticated %} 
+			<li id="nav-info" class={{ account_class }}>
+				<a href={%url monitor.views.account_page%}> {{ user.username }}</a>
+			</li>
+				<li id="nav-login" class={{ login_class }}>
+					<a href={%url monitor.views.logout_page%}>{% trans 'Log out' %}</a>
+				</li>
+	    	{% else %} 
+			<li id="nav-info" class={{ account_class }}>
+				 <a> anonymous </a>
+			</li>
+			<li id="nav-login" class={{ login_class }}>
+				<a href={%url django.contrib.auth.views.login%}?next=/>{% trans 'Log in' %}</a>
+			</li>
+	    {% endif %}
+			
+		</ul>
+	</div> <!-- End Navigation -->
+
+  	{% block content %}{% endblock %}
+	
+	<div id="footer">
+	<p id="footer">
+		&copy; 2009	-2010 StoneFree Software. All rights reserved worldwide.
+	</p>
+	</div> <!-- End footer -->
+	
+</body>
+</html>

@@ -1,0 +1,9 @@
+AuthName "Restricted Area" 
+ErrorDocument 403 "Requiere usuario valido" 
+AuthType Basic 
+AuthUserFile /home/hernando/sistema/alarma/mapa/.htpasswd
+AuthGroupFile /home/hernando/sistema/alarma/mapa/.htgroup
+<LIMIT GET>
+require group allowed
+</LIMIT>
+

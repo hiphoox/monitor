@@ -1,0 +1,370 @@
+<HTML>
+
+<head>
+<meta http-equiv="refresh" content= "3">
+<title></title>
+
+<script type="text/javascript">
+function SetValues()
+{
+    var s = 'X=' + window.event.clientX +  ' Y=' + window.event.clientY ;
+    document.getElementById('divCoord').innerText = s;
+
+    floatingMenu.menu.style.left =window.event.clientX;
+    floatingMenu.menu.style.top =window.event.clientY;
+}  
+
+</script></head>
+
+
+<BODY BGCOLOR=#ffffff >
+<script type="text/javascript">
+
+
+function entra(obj,datos) {
+    //obj.style.backgroundColor='Red';
+    floatingMenu.menu.style.left =window.event.clientX;
+    floatingMenu.menu.style.top =window.event.clientY;   
+    floatingMenu.menu.innerHTML=datos;
+
+//    document.getElementById('1').style.backgroundColor='Red';
+}
+
+function sale(obj) {
+    //obj.style.backgroundColor='White'
+    floatingMenu.menu.style.left =-2000;
+}
+
+function bgr_color(obj, color) {
+//    obj.style.backgroundColor=color
+   
+}
+
+
+</script>
+  <center>Hora y fecha de actualizacion: horaFecha 
+<br><br>
+<table  border="1" >
+  <tr>
+	<TD>
+		<table  border="1">
+		<tr>
+	    		<td  height="40"	bgcolor="colorEli" OnClick="window.open('cgi-bin/cambiaPermisosEli?nombre=Eli','resultado','width=355,height=240,scrollbars=NO') " > 
+			<center>
+			<table >
+				<tr>
+		    		<td id="101a"
+					width="30"  height="20" bgcolor="White" 
+					onmouseover="entra(this,'Cubiculo 102 <br> Equipo de escritorio (PC). <br> Elida Estrada<br> Horario: lunes a viernes 9 am - 4 pm. <br> Tel:56223583, Ext.3583 <br> Notas: ninguna' )" 
+					onmouseout="sale(this)"><p align="center">Eli</p>
+				</td>
+				</tr>
+				<tr>
+		    		<td id="101b"
+					width="30"  height="20" bgcolor="White" onmouseover="entra(this,
+					'Cubiculo 102 <br> Equipo de escritorio (PC). <br> Gabriela Peñr> Horario: lunes a viernes 9 am - 3 pm. <br> Tel:56223583, Ext.3583 <br> Notas: ninguna' )" 
+					onmouseout="sale(this)"><p align="center">Gaby</p>
+				</td>
+				</tr>	
+			</table>
+			</center>
+			</td>
+
+		</tr>
+	
+		<tr>
+	    		<td id="103"
+				height="40"  bgcolor="colorInvitados" 
+				OnClick="window.open('cgi-bin/cambiaPermisos.sh?nombre=Invitados','resultado','width=355,height=240,scrollbars=NO') "
+				onmouseover="entra(this,
+				'Cubiculo 102 <br> Equipo de escritorio (PC). <br> Invitados<br> Horario: no definido. <br> Tel:56223583, Ext.3583 <br> Notas: ocupado solo ocasionalmente' )"  
+				onmouseout="sale(this)"><p align="center">Invitados</p>
+			</td>
+		</tr>
+
+		<tr>
+	    		<td  height="40"  bgcolor="colorSalvador" onmouseover="bgr_color(this, 'Red')" 
+				OnClick="window.open('cgi-bin/cambiaPermisosSalvador?nombre=Salvador','resultado','width=355,height=240,scrollbars=NO') "
+				onmouseout="sale(this)"><p align="center">Salvador</p>
+			</td>
+		</tr>
+
+		<tr>
+	    		<td  height="40"  bgcolor="colorRamses" onmouseover="bgr_color(this, 'Red')" 
+				OnClick="window.open('cgi-bin/cambiaPermisosRamses?nombre=Ramses','resultado','width=355,height=240,scrollbars=NO') "
+				onmouseout="sale(this)"><p align="center">Ramses</p>
+			</td>
+		</tr>
+
+		<tr>
+	    		<td  height="40"  bgcolor="colorPaty" onmouseover="bgr_color(this, 'Red')" 
+				OnClick="window.open('cgi-bin/cambiaPermisosPaty?nombre=Paty','resultado','width=355,height=240,scrollbars=NO') "
+				onmouseout="sale(this)"><p align="center">Paty</p>
+			</td>
+		</tr>
+
+		<tr>
+	    		<td  height="40"  bgcolor="colorRaul" onmouseover="bgr_color(this, 'Red')" 
+				OnClick="window.open('cgi-bin/cambiaPermisosRaul?nombre=Raul','resultado','width=355,height=240,scrollbars=NO') "
+				onmouseout="sale(this)"><p align="center">Raul</p>
+			</td>
+		</tr>
+
+		<tr>
+	    		<td bgcolor="colorEduardo" height="40"
+				OnClick="window.open('cgi-bin/cambiaPermisosEduardo?nombre=Eduardo','resultado','width=355,height=240,scrollbars=NO') "> 
+			<center>
+			<table >
+		    		<td width="30" height="20" bgcolor="White" onmouseover="bgr_color(this, 'Red')"
+					onmouseout="sale(this)"><p align="center">PC1</p>
+				</td>
+		    		<td width="30"  height="20" bgcolor="White" onmouseover="bgr_color(this, 'Red')" 
+					onmouseout="sale(this)"><p align="center">PC2</p>
+				</td>
+
+			</table>
+			<p align="center">Eduardo</p>
+			</center>
+			</td>
+		</tr>
+
+
+		<tr>
+	    		<td  height="40"  bgcolor="colorLizbeth" onmouseover="bgr_color(this, 'Red')"
+				OnClick="window.open('cgi-bin/cambiaPermisosLizbeth?nombre=Lizbeth','resultado','width=355,height=240,scrollbars=NO') " 
+				onmouseout="sale(this)"><p align="center">Lizbeth</p>
+			</td>
+		</tr>
+
+		<tr>
+	    		<td  height="40"  bgcolor="colorJoseMaria" onmouseover="bgr_color(this, 'Red')" 
+				OnClick="window.open('cgi-bin/cambiaPermisosJoseMaria?nombre=JoseMaria','resultado','width=355,height=240,scrollbars=NO') "
+				onmouseout="sale(this)"><p align="center">Jose Maria</p>
+			</td>
+		</tr>
+
+		<tr>
+	    		<td  height="40"  bgcolor="colorHernando" onmouseover="bgr_color(this, 'Red')" 
+				OnClick="window.open('cgi-bin/cambiaPermisosHernando?nombre=Hernando','resultado','width=350,height=240,scrollbars=NO') "
+				onmouseout="sale(this)"><p align="center">Hernando</p>
+			</td>
+		</tr>
+
+		<tr>
+	    		<td  bgcolor="colorSigma"
+			OnClick="window.open('cgi-bin/cambiaPermisos.sh?nombre=Sigma','resultado','width=355,height=240,scrollbars=NO') "> <p align="center">Sigma</p>
+			<center>
+			<table >
+		    		<td width="30"  bgcolor="White" onmouseover="bgr_color(this, 'Red')" 
+					onmouseout="sale(this)"><p align="center">PC1</p>
+				</td>
+		    		<td width="30"  bgcolor="White" onmouseover="bgr_color(this, 'Red')" 
+					onmouseout="sale(this)"><p align="center">PC2</p>
+
+			</table>
+			</center>
+			</td>
+		</tr>
+
+		<tr>
+	    		<td  height="40"  bgcolor="White" onmouseover="bgr_color(this, 'Red')" 
+				onmouseout="sale(this)"><p align="center">AME</p>
+			</td>
+		</tr>
+
+
+		</table  >
+
+	</TD>
+
+
+
+
+
+
+	<TD width="60">
+	</TD>
+
+
+
+
+
+    	<td >
+		<table  border="1">
+		<tr>
+	    		<td  height="50"> 
+			<center>
+			<table >
+				<tr>
+		    		<td width="30"  height="30" bgcolor="White" onmouseover="bgr_color(this, 'Red')" 
+					onmouseout="sale(this)"><p align="center">Comedor</p>
+				</td>
+				</tr>
+				<tr>
+		    		<td width="30"  height="30" bgcolor="White" onmouseover="bgr_color(this, 'Red')" 
+					onmouseout="sale(this)"><p align="center">Juntas</p>
+				</td>
+				</tr>	
+			</table>
+			</center>
+			</td>
+
+		</tr>
+	
+		<tr>
+	    		<td  height="40"  bgcolor="colorJuan" onmouseover="bgr_color(this, 'Red')" 
+				onmouseout="sale(this)"
+				OnClick="window.open('cgi-bin/cambiaPermisosJuan?nombre=Juan','resultado','width=355,height=240,scrollbars=NO') ">
+			<p align="center">Juan</p>
+			</td>
+		</tr>
+
+		<tr>
+	    		<td  height="40"  bgcolor="colorSilvia" onmouseover="bgr_color(this, 'Red')" 
+				onmouseout="sale(this)"
+				OnClick="window.open('cgi-bin/cambiaPermisosSilvia?nombre=Silvia','resultado','width=355,height=240,scrollbars=NO') "><p align="center">Silvia</p>
+			</td>
+		</tr>
+
+
+		<tr>
+	    		<td  height="40"  bgcolor="colorLety" onmouseover="bgr_color(this, 'Red')" 
+				onmouseout="sale(this)"
+				OnClick="window.open('cgi-bin/cambiaPermisosLety?nombre=Lety','resultado','width=355,height=240,scrollbars=NO') "><p align="center">Lety</p>
+			</td>
+		</tr>
+
+
+		<tr>
+	    		<td  bgcolor="colorMogens" OnClick="window.open('cgi-bin/cambiaPermisosMogens?nombre=Mogens','resultado','width=355,height=240,scrollbars=NO')" > 
+			<center>
+			<table >
+		    		<td width="30"  bgcolor="White" onmouseover="bgr_color(this, 'Red')" 
+					onmouseout="sale(this)"
+					><p align="center">PC1</p>
+				</td>
+		    		<td width="30"  bgcolor="White" onmouseover="bgr_color(this, 'Red')" 
+					onmouseout="sale(this)"><p align="center">PC2</p>
+				</td>
+
+			</table>
+			<p align="center">Mogens</p>
+			</center>
+			</td>
+		</tr>
+
+		<tr>
+	    		<td  height="40"  bgcolor="colorFede" onmouseover="bgr_color(this, 'Red')" 
+				onmouseout="sale(this)"
+				OnClick="window.open('cgi-bin/cambiaPermisosFede?nombre=Fede','resultado','width=355,height=240,scrollbars=NO') "><p align="center">Fede</p>
+			</td>
+		</tr>
+
+		<tr>
+	    		<td bgcolor="colorBeto"
+				OnClick="window.open('cgi-bin/cambiaPermisosBeto?nombre=Beto','resultado','width=355,height=240,scrollbars=NO') "> 
+			<center>
+			<p align="center">Beto</p>
+			<table >
+		    		<td width="30"  bgcolor="White" onmouseover="bgr_color(this, 'Red')" 
+					onmouseout="sale(this)"><p align="center">PC1</p>
+				</td>
+		    		<td width="30"  bgcolor="White" onmouseover="bgr_color(this, 'Red')" 
+					onmouseout="sale(this)"><p align="center">PC2</p>
+				</td>
+
+			</table>
+
+			</center>
+			</td>
+		</tr>
+
+		<tr>
+	    		<td bgcolor="colorCarlos"
+			OnClick="window.open('cgi-bin/cambiaPermisosCarlos?nombre=Carlos','resultado','width=355,height=240,scrollbars=NO') "> 
+			<center>
+			<p align="center">Carlos</p>
+			<table >
+		    		<td width="30"  bgcolor="White" onmouseover="bgr_color(this, 'Red')" 
+					onmouseout="sale(this)"><p align="center">PC1</p>
+				</td>
+		    		<td width="30"  bgcolor="White" onmouseover="bgr_color(this, 'Red')" 
+					onmouseout="sale(this)"><p align="center">PC2</p>
+				</td>
+
+			</table>
+
+			</center>
+			</td>
+		</tr>
+
+		<tr>
+	    		<td  height="40"  bgcolor="colorGeronimo" onmouseover="bgr_color(this, 'Red')" 
+				onmouseout="sale(this)"	
+				OnClick="window.open('cgi-bin/cambiaPermisosGeronimo?nombre=Geronimo','resultado','width=355,height=240,scrollbars=NO') "><p align="center">Geronimo</p>
+			</td>
+		</tr>
+
+
+		<tr>
+	    		<td  height="90"  bgcolor="colorNacho" onmouseover="bgr_color(this, 'Red')" 
+				onmouseout="sale(this)"
+				OnClick="window.open('cgi-bin/cambiaPermisosNacho?nombre=Nacho','resultado','width=355,height=240,scrollbars=NO') "><p align="center">Nacho</p>
+			</td>
+		</tr>
+
+
+		</table  >
+
+	</td>
+  </tr>
+
+
+  
+
+
+
+</table>
+
+</center>
+
+<div id="floatdiv" style="   
+    position:absolute;   
+    width:300px;height:50px;left:0px;top:0px;   
+    padding:16px;background:#FFFFFF;   
+    border:2px solid #2266AA">   
+Datos del equipo:.   
+</div> 
+
+<div id="divCoord"></div>
+
+
+<script type="text/javascript"><!--   
+
+var floatingMenuId = 'floatdiv';   
+var floatingMenu =   
+{   
+ 
+  
+    menu:   
+        document.getElementById   
+        ? document.getElementById(floatingMenuId)   
+        : document.all   
+          ? document.all[floatingMenuId]   
+          : document.layers[floatingMenuId]   
+};   
+
+
+floatingMenu.menu.style.left =-2000;
+
+
+  
+
+  
+//--></script>  
+<br>
+<center>
+<INPUT TYPE="BUTTON" VALUE="Silenciar alarma" ONCLICK="window.location.href='http://corleone.iimas.unam.mx/cgi-bin/silenciaAlarma'"> 
+</center>
+</BODY > </HTML>
+

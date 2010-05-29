@@ -1,0 +1,24 @@
+1	1	1	Telefonos
+1	1	1	Beto
+0	0	1	Libre
+1	1	1	Eli
+0	0	1	Libre
+1	1	1	Raul	
+0	1	1	Salvador
+1	1	1	Nacho
+1	1	1	Paty
+1	1	1	JoseMaria
+1	1	1	Invitados	
+1	1	1	Sigma 
+1	1	1	Internet	(vlan Internet)
+0	0	1	Libre	(vlan Internet)
+1	1	1	Carlos	(vlan Internet)	
+1	1	1	Mogens	(vlan Internet)
+1	1	1	Juan
+1	1	1	Fede
+1	1	1	Eduardo
+1	1	1	Lety
+0	0	0	Ramses	(laptop)
+1	1	1	Silvia
+1	1	1	Lizbeth
+1	1	1	Geronimo

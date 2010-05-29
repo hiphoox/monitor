@@ -1,0 +1,86 @@
+DEVELOPMENT TOOLS
+=================
+*	Language: [python 2.6][0]
+* Isolated enviroments: 
+	* [virtualenv][1]
+	*	[virtualenvwrapper][2]
+*	Build: 
+	* [easy_install][7]
+	* [pip][3]
+* VCS: [git][4]
+* Deployment: 
+	* [ssh][5] 
+	* [ssh-add][6]
+
+[0]: http://www.python.org/
+[1]: http://pypi.python.org/pypi/virtualenv/
+[2]: http://www.doughellmann.com/projects/virtualenvwrapper/
+[3]: http://pip.openplans.org/
+[4]: http://git-scm.com/
+[5]: http://bashcurescancer.com/run_remote_commands_with_ssh.html
+[6]: http://www.snailbook.com/faq/no-passphrase.auto.html
+[7]: http://peak.telecommunity.com/DevCenter/EasyInstall
+
+----------
+FRAMEWORKS
+==========
+* [django 1.2.1][7]
+* [django-extensions][8]
+
+[7]: http://www.djangoproject.com/
+[8]: http://code.google.com/p/django-command-extensions/
+
+----------
+STEPS
+=====
+1. Install python 2.6
+2. Install setuptools
+
+	`$ wget http://pypi.python.org/packages/2.6/s/setuptools/setuptools-0.6c9-py2.6.egg#md5=ca37b1ff16fa2ede6e19383e7b59245a
+	$ sh setuptools-0.6c9-py2.6.egg`
+
+3. Install git
+	
+
+4. Install pip
+
+	`$ easy_install pip`
+
+5. Install virtualenv
+
+	`$ easy_install virtualenv`
+
+6. Install virtualenvwrapper
+
+	`$ easy_install virtualenvwrapper`
+	
+7. Configure environment. In your .bashrc or .profile write down:
+
+	`$ export WORKON_HOME=$HOME/.virtualenvs
+	$ source $VIRTUAL_WRAPPER_DIRECTORY/virtualenvwrapper_bashrc
+	$ export PIP_VIRTUALENV_BASE=$WORKON_HOME`
+
+8. Download alarm
+
+	`$ hg clone https://hiphoox@bitbucket.org/hiphoox/experior/
+	$ cd experior
+	$ hg co`
+
+9. Create & Configure virtualenv
+
+	`$ pip install -E my-new-django-env/ -r environment.txt
+	$ workon my-new-django-env`
+	
+Enjoy!!!
+
+----------
+Daily work
+==========
+
+`cd alarm
+workon my-new-django-env`
+	
+###Print python path
+`import sys
+from pprint import pprint as pp
+pp(sys.path)`

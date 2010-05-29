@@ -1,0 +1,49 @@
+{% extends "monitor/base.html" %} 
+{% load i18n %}
+{% block title %}{% trans 'Welcome' %}{% endblock %} 
+
+{% block content %} 
+
+	<div class="content">
+	<div class="pagefragment">
+	
+		<h2>Welcome! Bienvenue! Willkommen! ¡Bienvenido!  歓迎</h2>
+		{% if user.username %} 
+      <p> {{ user.username }}! 
+        {% trans 'Here you can monitor and check your computers!'%}</p> 
+    {% else %} 
+      <p>{% trans 'Anonymous user! You need to '%}
+			<a href={%url django.contrib.auth.views.login%}?next=/>login</a> 
+      {% trans 'before you can monitor and check your computers.'%}</p> 
+    {% endif %} 
+		
+		<p>{{ page_body }}</p>
+
+		<div id="main">	
+		<ul id="app-exhibit">
+			<li class="cssedit2">
+				<a href="/">
+					<strong>monitor</strong>
+				</a>
+			</li>
+		</ul>		
+		</div> <!-- End Main -->
+		
+		<div id="side" class="infobox">
+		<h2>{% trans 'Links' %}</h2>
+		<ul id="actions">
+			<li><a href="http://intranet.crosshorizons.com" class="dl">Intranet</a></li>
+			<li><a href="http://qualitymanagment.crosshorizons.com" class="dl">Spira</a></li>
+			<li><a href="http://www.stepwise.com" class="dl">{% trans 'News' %}</a></li>
+		</ul>
+		
+		<h2 class="separated">{% trans 'Subscribe to rss' %}</h2>
+		<p>{% trans 'Get the latest testing news in your newsreader.' %} 
+			<a href={%url monitor.views.main_page%} class="go feed">{% trans 'Subscribe to the feed.' %}</a>
+		</p>
+		</div> <!-- End Side -->
+	
+	</div> <!-- End pagefragment -->
+	</div>
+	
+{% endblock %} 

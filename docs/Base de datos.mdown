@@ -1,0 +1,71 @@
+Entidades
+==========
+
+Equipo
+-------
+1. ubicación
+2. marca
+3. disco duro
+4. memoria
+5. numero
+6. ip
+7. puerto
+8. switch
+
+
+Switch
+-------
+1. identificador
+2. ip
+3. ubicación
+4. puertos
+
+
+Ubicación
+----------
+1. clave (institución, edificio, area, piso, oficina)
+2. latitud
+3. longitud
+
+
+Usuario
+--------
+1. login
+2. contraseña
+3. nombre completo
+4. rol
+5. maquina
+
+Rol
+----
+1. nombre
+2. descripción
+
+
+Permiso
+--------
+1. nombre
+2. descripción
+
+
+Color
+------
+1. clave
+2. color
+3. nombre
+4. significado
+
+
+Mensaje
+--------
+1. nombre
+2. decripción
+3. texto
+
+
+
+Log
+----
+
+
+

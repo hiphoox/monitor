@@ -1,0 +1,6 @@
+c00	507050	gris	deshabilitadoDesconectado
+c01	70a070	gris	deshabilitadoConectado
+c10	1b8018	verdeObs	habilitadoDesenchufado
+c11	0fc02a	verdeCla	habilitadoEnchufado
+c12	E6FF00	amarillo	habilitadoAlerta
+c13	FF0000	rojo	habilitadoAlarma

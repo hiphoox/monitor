@@ -1,0 +1,43 @@
+Welcome to the Monitor project!
+==============================
+
+Under the docs directory you will find all the documentation you need to start working with alarm.
+
+You need to create the database using manage.py so you can run the app.
+
+
+Enjoy!
+
+----
+git commit conventions
+======================
+Labels to use at the beginning of the commits:
+
+	1.	Add:
+	2.	Fix:
+	3.	Ref:
+	4.	Conf:
+	5.	Doc:
+
+
+----
+Commands
+========
+###manage.py 
+
+	1. rebuild_db : delete the current local sqlite file and create a new one.
+	2. deploy	  : do a local push to github & do a remote pull in the server. 
+
+
+----
+REFERENCES
+==========
+1.	[django development][0]
+2.	[python paths][1]
+3.	[extending django user model][2]
+4.	[django & SSL][3]
+
+[0]: http://www.b-list.org/
+[1]: http://www.stereoplex.com/two-voices/understanding-imports-and-pythonpath
+[2]: http://scottbarnham.com/blog/2008/08/21/extending-the-django-user-model-with-inheritance/
+[3]: http://www.tangerinesmash.com/2009/red-robot-studios-part-3-securing-django-ssl/

@@ -1,0 +1,12 @@
+#Excluding the database file.
+*.db
+#Excluding binary files.
+*.pyc
+# osx noise
+.DS_Store
+# location binaries
+*.mo
+#Local files
+initial_data.json
+model.dot
+local_settings.py
