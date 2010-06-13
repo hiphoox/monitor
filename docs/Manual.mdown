@@ -6,3 +6,13 @@ The bold titles means obligatory.
 In order to change user passwords you need to use the change password form under User page.
 
 
+References
+===========
+
+http://pysnmp.sourceforge.net/docs/4.x/index.html
+
+http://www.linuxdynasty.org/howto-monitor-redhat-cluster-using-snmp-and-python.html
+
+http://www.mavetju.org/networking/network-monitoring.php
+
+

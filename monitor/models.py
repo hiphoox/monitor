@@ -132,7 +132,18 @@ class Switch(TimeStampedModel):
   
   def __unicode__(self):
     return u"%s, %s" % (self.name , self.description)
-    
+   
+   
+####################################################################################################
+class Event(TimeStampedModel):
+  name        = models.CharField(max_length=80)
+  port_number = models.PositiveIntegerField(null=False)
+  # Relationships
+  switch      = models.ForeignKey(Switch)
+
+  def __unicode__(self):
+    return u"%s, %s" % (self.name , self.switch)
+
 ####################################################################################################
 class Computer(TimeStampedModel):
   """Computers in the institute"""

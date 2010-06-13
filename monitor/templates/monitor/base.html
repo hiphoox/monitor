@@ -5,15 +5,18 @@
 
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8;charset=utf-8" />
+	<meta name="viewport" content="initial-scale=0.1, user-scalable=no" />
 	<title>
 		Monitor | {% block title %}{% endblock %}
 	</title>
 	<link rel="stylesheet" href="{% tt_media_prefix %}css/basics.css" type="text/css" /> 
 	<link rel="stylesheet" href="{% tt_media_prefix %}css/frontpag.css" type="text/css" /> 
 	<link rel="stylesheet" href="{% tt_media_prefix %}css/admin-forms.css" type="text/css" />
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+	<script type="text/javascript" src="{% tt_media_prefix %}js/maps.js"></script>
 </head>
 
-<body class="frontpage">
+<body onload="initialize()" class="frontpage">
 		
 	<div id="navigation">
 		<ul>

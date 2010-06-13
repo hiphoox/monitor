@@ -68,6 +68,9 @@ STEPS
 
 9. Create & Configure virtualenv
 
+	mkdir .virtualenvs
+	mkvirtualenv alarm
+	
 	`$ pip install -E my-new-django-env/ -r environment.txt
 	$ workon my-new-django-env`
 	
@@ -76,6 +79,7 @@ Enjoy!!!
 ----------
 Daily work
 ==========
+lssitepackages
 
 `cd alarm
 workon my-new-django-env`
@@ -84,3 +88,25 @@ workon my-new-django-env`
 `import sys
 from pprint import pprint as pp
 pp(sys.path)`
+
+-----------
+SNMP Configuration
+===================
+http://www.velocityreviews.com/forums/t674498-p2-translating-pysnmp-oids-to-human-readable-strings.html
+http://www.simpleweb.org/ietf/mibs/byEncoding?encoding=txt
+
+> [shantanu@tiamat:~/Documents/snmp]$ ls 
+> AV-AES-MIB.mib
+> [shantanu@tiamat:~/Documents/snmp]$ smidump AV-AES-MIB.mib -k > AV-AES-MIB.txt 
+> smidump: module `AV-AES-MIB.mib' contains errors, expect flawed output
+> [shantanu@tiamat:~/Documents/snmp]$ build-pysnmp-mib AV-AES-MIB.txt > AV-AES-MIB.py 
+> [shantanu@tiamat:~/Documents/snmp]$ ls 
+> AV-AES-MIB.mib AV-AES-MIB.txt AV-AES-MIB.py
+> [shantanu@tiamat:~/Documents/snmp]$ sudo cp AV-AES.py /usr/lib/python2.5/site-packages/pysnmp/v4/smi/mibs/instances 
+> [shantanu@tiamat:~/Documents/snmp]$ ls /usr/lib/python2.5/site-packages/pysnmp/v4/smi/mibs/instances 
+> AV-AES-MIB.py __SNMP-FRAMEWORK-MIB.py __SNMP-MPD-MIB.pyc __SNMP-USER-BASED-SM-MIB.py __SNMP-VIEW-BASED-ACM-MIB.pyc __init__.py
+> __PYSNMP-USM-MIB.py __SNMP-FRAMEWORK-MIB.pyc __SNMP-TARGET-MIB.py __SNMP-USER-BASED-SM-MIB.pyc __SNMPv2-MIB.py __init__.pyc
+> __PYSNMP-USM-MIB.pyc __SNMP-MPD-MIB.py __SNMP-TARGET-MIB.pyc __SNMP-VIEW-BASED-ACM-MIB.py __SNMPv2-MIB.pyc
+> [shantanu@tiamat:~/Documents/snmp]$ 
+> [shantanu@tiamat:~/Documents/snmp]$ ipython 
+> Python 2.5.2 (r252:60911, Sep 30 2008, 15:41:3

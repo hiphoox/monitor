@@ -6,6 +6,7 @@
 .DS_Store
 # location binaries
 *.mo
+*.idea
 #Local files
 initial_data.json
 model.dot
