@@ -16,6 +16,40 @@ body {
 	width: 800px;
 }
 
+#detail_map_canvas {
+  margin: 0;
+  line-height: 1em;
+  background-color:#888; 
+  width:790px; 
+  height:550px
+}
+
+#institute {
+  width:395px; 
+  height:200px;
+  background-color:#868; 
+}
+
+#building {
+  width:395px; 
+  height:200px;
+  background-color:#848; 
+	margin: -200px 0 0 395px;
+}
+
+#floor {
+  width:790px; 
+  height:350px;
+  background-color:#000; 
+}
+
+#alarm_mark {
+  width:30px; 
+  height:30px;
+  background-color:#ff0000; 
+  opacity: 0.70;	
+}
+
 /* @end */
 
 h1 {

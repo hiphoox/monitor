@@ -10,8 +10,16 @@ from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 
 def main_page(request): 
+  
+  titulo = "INSTITUTO DE INVESTIGACIONES EN MATEMATICAS APLICADAS Y EN SISTEMAS",
+  direccion = "CIRCUITO ESCOLAR, CIUDAD UNIVERSITARIA, Apartado Postal 20-726, Admon. No. 20, C.P. 01000, Del. Alvaro Obregon",
+  url = "http://127.0.0.1:8000/monitor/activities/?institute=institute;building=building;floor=floor"
+  
   variables = RequestContext(request, { 
-    'user': request.user
+    'user': request.user,
+    'titulo': titulo,
+    'direccion': direccion,
+    'url': url
   })
   
   return render_to_response( 
@@ -19,9 +27,18 @@ def main_page(request):
   )
     
 @login_required 
-def activities_page(request): 
+def activities_page(request):
+  institute = request.GET["institute"];
+  building = request.GET["building"];
+  floor = request.GET["floor"];
+  coordinates = "-180px 0px 0px 365px";
+
   variables = RequestContext(request, { 
-    'activities_class': 'active'
+    'activities_class': 'active',
+    'institute_style': "background: url(/site_media/img/" + institute +".png)",
+    'building_style': "background: url(/site_media/img/" + building +".png)",
+    'floor_style': "background: url(/site_media/img/" + floor +".png)",
+    'alarm_mark_style': "margin: " + coordinates
   })
   return render_to_response( 
     'monitor/activities.html', variables
