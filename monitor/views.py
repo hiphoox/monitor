@@ -13,7 +13,7 @@ def main_page(request):
   
   titulo = "INSTITUTO DE INVESTIGACIONES EN MATEMATICAS APLICADAS Y EN SISTEMAS",
   direccion = "CIRCUITO ESCOLAR, CIUDAD UNIVERSITARIA, Apartado Postal 20-726, Admon. No. 20, C.P. 01000, Del. Alvaro Obregon",
-  url = "http://127.0.0.1:8000/monitor/activities/?institute=institute;building=building;floor=floor"
+  url = "/monitor/activities/?institute=institute;building=building;floor=floor"
   
   variables = RequestContext(request, { 
     'user': request.user,
