@@ -1,0 +1,1 @@
+snmpwalk -v3 -u <user name> -l authPriv -a <authentication-method> -A <authentication password> -x <method of encryption> -X <encryption key> <ip address of the switch> <OID value> IF-MIB::ifOperStatus
