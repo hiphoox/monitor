@@ -2,7 +2,6 @@
 import string
 from pysnmp.entity.rfc3413.oneliner import cmdgen
 
-
 def port_status_for_community_in_switch(community, switch):
   SWITCH_PORT = 161
   MAX_PORT_NUMBER = 60
@@ -36,5 +35,5 @@ def port_status_for_community_in_switch(community, switch):
 
   return ports
 
-puertos = port_status_for_community_in_switch('iimas', '132.248.51.194')
+puertos = port_status_for_community_in_switch('alarmas', '132.248.51.194')
 print puertos

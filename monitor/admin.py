@@ -24,5 +24,6 @@ admin.site.register(Message, CatalogAdmin)
 #######################################   Models Admin  ##################################################  
 ############################################################################################################
 admin.site.register(Switch)
+admin.site.register(Event)
 admin.site.register(Computer)
 admin.site.register(Employee)

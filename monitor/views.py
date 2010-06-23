@@ -8,12 +8,23 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth import logout
 
 from django.contrib.auth.decorators import login_required
+from monitor.models import *
 
 def main_page(request): 
+  events = Event.objects.all()
+  titulo = ""
+  direccion = ""
+  url = ""
   
-  titulo = "INSTITUTO DE INVESTIGACIONES EN MATEMATICAS APLICADAS Y EN SISTEMAS",
-  direccion = "CIRCUITO ESCOLAR, CIUDAD UNIVERSITARIA, Apartado Postal 20-726, Admon. No. 20, C.P. 01000, Del. Alvaro Obregon",
-  url = "/monitor/activities/?institute=institute;building=building;floor=floor"
+  for event in events:
+    titulo = event.computer.location.institute
+    direccion = event.computer.location.address
+    building = event.computer.location.building
+    floor = event.computer.location.floor
+    computer = str(event.computer.id)
+    url = "/monitor/activities/?institute=" + titulo + ";building=" + building + ";floor=" + floor + ";computer=" + computer 
+  
+  
   
   variables = RequestContext(request, { 
     'user': request.user,
@@ -31,7 +42,9 @@ def activities_page(request):
   institute = request.GET["institute"];
   building = request.GET["building"];
   floor = request.GET["floor"];
-  coordinates = "-180px 0px 0px 365px";
+  computer_id = request.GET["computer"];
+  computer = Computer.objects.get(id=computer_id)
+  coordinates = computer.coordinates
 
   variables = RequestContext(request, { 
     'activities_class': 'active',

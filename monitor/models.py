@@ -78,6 +78,7 @@ class Location(TimeStampedModel):
   floor       = models.CharField(blank=True, null=True, max_length=20, choices=FLOORS)
   location_type  = models.CharField(blank=True, null=True, max_length=20, choices=LOCATION_TYPES)
   enabled     = models.BooleanField(default=True)
+  address     = models.CharField(max_length=100)
   # Relationships
   area         = models.ForeignKey(Area)
   room         = models.ForeignKey(Room)
@@ -127,6 +128,10 @@ class Switch(TimeStampedModel):
   identifier  = models.PositiveIntegerField(null=False)
   ip_address  = models.CharField(max_length=80)
   ports_number = models.PositiveIntegerField(null=False)
+  encryption_key = models.CharField(max_length=256)
+  password    = models.CharField(max_length=16)
+  user_name   = models.CharField(max_length=30)
+  community   = models.CharField(max_length=30)
   # Relationships
   location     = models.ForeignKey(Location)
   
@@ -134,33 +139,37 @@ class Switch(TimeStampedModel):
     return u"%s, %s" % (self.name , self.description)
    
    
+####################################################################################################
+class Computer(TimeStampedModel):
+  """Computers in the institute"""
+  name          = models.CharField(max_length=80)
+  description   = models.CharField(max_length=100)
+  enabled     = models.BooleanField(default=True)
+  brand         = models.CharField(max_length=80)
+  hd_size     = models.CharField(max_length=80)
+  memory_size = models.CharField(max_length=80)
+  serial_number = models.CharField(max_length=80)
+  ip_address    = models.CharField(max_length=80)
+  switch_port   = models.PositiveIntegerField(null=False)
+  # Relationships
+  switch        = models.ForeignKey(Switch)
+  location     = models.ForeignKey(Location)
+  coordinates  = models.CharField(max_length=30)
+  
+  def __unicode__(self):
+    return u"%s, %s" % (self.name , self.description)
+
+
 ####################################################################################################
 class Event(TimeStampedModel):
   name        = models.CharField(max_length=80)
   port_number = models.PositiveIntegerField(null=False)
   # Relationships
   switch      = models.ForeignKey(Switch)
+  computer    = models.ForeignKey(Computer)
 
   def __unicode__(self):
     return u"%s, %s" % (self.name , self.switch)
-
-####################################################################################################
-class Computer(TimeStampedModel):
-  """Computers in the institute"""
-  name          = models.CharField(max_length=80)
-  description   = models.CharField(max_length=100)
-  brand         = models.CharField(max_length=80)
-  hd_size     = models.CharField(max_length=80)
-  memory_size = models.CharField(max_length=80)
-  serial_number = models.CharField(max_length=80)
-  ip_address    = models.CharField(max_length=80)
-  port          = models.PositiveIntegerField(null=False)
-  # Relationships
-  switch        = models.ForeignKey(Area)
-  location     = models.ForeignKey(Location)
-  
-  def __unicode__(self):
-    return u"%s, %s" % (self.name , self.description)
 
 
 ####################################################################################################

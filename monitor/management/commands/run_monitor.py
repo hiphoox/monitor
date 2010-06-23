@@ -5,45 +5,103 @@ import os
 # GETNEXT Command Generator with MIB resolution
 import string
 from pysnmp.entity.rfc3413.oneliner import cmdgen
-from monitor.models import Event
+from monitor.models import *
 
-def port_status_for_community_in_switch(community, switch):
-  SWITCH_PORT = 161
-  MAX_PORT_NUMBER = 60
-  cmdGen = cmdgen.CommandGenerator()
-
-  errorIndication, errorStatus, errorIndex, varBindTable = cmdGen.nextCmd(
-    # SNMP v2
-    cmdgen.CommunityData('test-agent', community),
-    # Transport
-    cmdgen.UdpTransportTarget((switch, SWITCH_PORT)), (('IF-MIB', 'ifOperStatus'),),)
-
-  ports = {}
-
-  if errorIndication:
-    print errorIndication
-  else:
-    if errorStatus:
-      print '%s at %s\n' % (
-          errorStatus.prettyPrint(),
-          varBindTable[-1][int(errorIndex)-1]
-          )
-    else:
-      for varBindTableRow in varBindTable:
-        for oid, val in varBindTableRow:
-          (symName, modName), indices = cmdgen.mibvar.oidToMibName(cmdGen.mibViewController, oid )
-          val = cmdgen.mibvar.cloneFromMibValue( cmdGen.mibViewController, modName, symName, val )
-        
-          index = int(string.join(map(lambda v: v.prettyPrint(), indices), '.'))
-          if index < MAX_PORT_NUMBER:
-            ports[index] = val.prettyPrint()
-
-  return ports
+class SwitchMonitor:
+  switch_states = {}
+  switchs_to_monitor = {}
+  switchs = {}
+  events = []
   
+  def port_status_for_community_in_switch(self, community, switch):
+    SWITCH_PORT = 161
+    MAX_PORT_NUMBER = 49
+    cmdGen = cmdgen.CommandGenerator()
+
+    errorIndication, errorStatus, errorIndex, varBindTable = cmdGen.nextCmd(
+      # SNMP v2
+      cmdgen.CommunityData('test-agent', community),
+      # Transport
+      cmdgen.UdpTransportTarget((switch, SWITCH_PORT)), (('IF-MIB', 'ifOperStatus'),),)
+
+    ports = {}
+    if errorIndication:
+      print errorIndication
+    else:
+      if errorStatus:
+        print '%s at %s\n' % (
+            errorStatus.prettyPrint(),
+            varBindTable[-1][int(errorIndex)-1]
+            )
+      else:
+        for varBindTableRow in varBindTable:
+          for oid, val in varBindTableRow:
+            (symName, modName), indices = cmdgen.mibvar.oidToMibName(cmdGen.mibViewController, oid )
+            val = cmdgen.mibvar.cloneFromMibValue( cmdGen.mibViewController, modName, symName, val )
+        
+            index = int(string.join(map(lambda v: v.prettyPrint(), indices), '.'))
+            if index < MAX_PORT_NUMBER:
+              ports[index] = val.prettyPrint()
+
+    return ports
+  
+  def __init__(self):
+    self.switchs = Switch.objects.all()
+    for switch in self.switchs:
+      if (switch.enabled):
+        ports = self.port_status_for_community_in_switch(switch.community, switch.ip_address)
+        self.switch_states[switch.identifier] = ports
+        
+    computers = Computer.objects.filter(enabled=True)
+    for computer in computers:
+      if not computer.switch.identifier in self.switchs_to_monitor:
+        self.switchs_to_monitor[computer.switch.identifier] = []      
+      ports = self.switchs_to_monitor[computer.switch.identifier]
+      ports.append(computer.switch_port)
+    
+    
+  def register_event(self, switch, port):
+    self.events.append([switch.identifier, port])
+    print self.events
+    
+  def compare_switch_state(self, switch, current, previous, ports_to_monitor):
+    """docstring for compare"""    
+    for port in ports_to_monitor:
+      if current[port] != previous[port]:
+        self.register_event(switch,port)
+        print "Bravo"
+
+  def check_switch_states(self):
+    for switch in self.switchs:
+      if switch.identifier in self.switchs_to_monitor:
+        current_statuses = self.port_status_for_community_in_switch(switch.community, switch.ip_address)
+        previous_statuses = self.switch_states[switch.identifier]
+        ports_to_monitor = self.switchs_to_monitor[switch.identifier]
+        self.compare_switch_state(switch, current_statuses, previous_statuses,ports_to_monitor)
+  
+  
+  def process_events(self):
+    for (identifier, port) in self.events:
+      switch = Switch.objects.get(identifier=identifier)
+      computer = Computer.objects.get(switch=switch,switch_port=port)      
+      new_event = Event(name="Name", port_number=port, switch=switch, computer=computer)
+      new_event.save()
+    
+    
+  def start(self):
+    while True:
+      self.check_switch_states()
+      self.process_events()
+
+
 class Command(BaseCommand):
   help = ("Run the monitor demon")
   
   def handle(self, *args, **options):
     print "Running the demon..."
-    puertos = port_status_for_community_in_switch('iimas', '132.248.51.194')
-    print puertos
+    switchMonitor = SwitchMonitor()
+    switchMonitor.start()
+    #stop(switch_statuses)
+    
+    
+    
