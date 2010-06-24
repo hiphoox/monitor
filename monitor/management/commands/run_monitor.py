@@ -1,9 +1,8 @@
+import os
+import time
+import string
 from django.core.management.base import BaseCommand
 from django.conf import settings
-import os
-
-# GETNEXT Command Generator with MIB resolution
-import string
 from pysnmp.entity.rfc3413.oneliner import cmdgen
 from monitor.models import *
 
@@ -13,6 +12,7 @@ class SwitchMonitor:
   switchs = {}
   events = []
   
+  # GETNEXT Command Generator with MIB resolution
   def port_status_for_community_in_switch(self, community, switch):
     SWITCH_PORT = 161
     MAX_PORT_NUMBER = 49
@@ -20,12 +20,15 @@ class SwitchMonitor:
 
     errorIndication, errorStatus, errorIndex, varBindTable = cmdGen.nextCmd(
       # SNMP v2
-      cmdgen.CommunityData('test-agent', community),
+      #cmdgen.CommunityData('test-agent', community),
+      # SNMP v3
+      cmdgen.UsmUserData('centinela', 'InsT003H101', 'InsT003H101'),
       # Transport
       cmdgen.UdpTransportTarget((switch, SWITCH_PORT)), (('IF-MIB', 'ifOperStatus'),),)
 
     ports = {}
     if errorIndication:
+      print "Error:"
       print errorIndication
     else:
       if errorStatus:
@@ -75,9 +78,10 @@ class SwitchMonitor:
     for switch in self.switchs:
       if switch.identifier in self.switchs_to_monitor:
         current_statuses = self.port_status_for_community_in_switch(switch.community, switch.ip_address)
-        previous_statuses = self.switch_states[switch.identifier]
-        ports_to_monitor = self.switchs_to_monitor[switch.identifier]
-        self.compare_switch_state(switch, current_statuses, previous_statuses,ports_to_monitor)
+        if len(current_statuses) != 0
+          previous_statuses = self.switch_states[switch.identifier]
+          ports_to_monitor = self.switchs_to_monitor[switch.identifier]
+          self.compare_switch_state(switch, current_statuses, previous_statuses, ports_to_monitor)
   
   
   def process_events(self):
@@ -86,12 +90,15 @@ class SwitchMonitor:
       computer = Computer.objects.get(switch=switch,switch_port=port)      
       new_event = Event(name="Name", port_number=port, switch=switch, computer=computer)
       new_event.save()
+      print "Saving..."
+    self.events = []
     
     
   def start(self):
     while True:
       self.check_switch_states()
       self.process_events()
+      time.sleep(3)
 
 
 class Command(BaseCommand):

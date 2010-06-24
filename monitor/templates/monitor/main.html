@@ -7,10 +7,9 @@
 	<div class="content">
 	<div class="pagefragment">
 	
-	  <h2>Welcome! Bienvenue! Willkommen! ¡Bienvenido!  歓迎</h2>
+	  <h2> ¡Bienvenido! </h2>
 	{% if user.username %} 
-       {{ user.username }}! 
-        {% trans 'Here you can monitor and check your computers!'%}
+        {% trans 'Desde este lugar puedes monitorear tus equipos'%}
     {% else %} 
       {% trans 'Anonymous user! You need to '%}
 			<a href={%url django.contrib.auth.views.login%}?next=/>login</a> 

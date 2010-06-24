@@ -39,6 +39,9 @@ class Room(TimeStampedModel):
   description = models.CharField(max_length=100)
   enabled     = models.BooleanField(default=True)
 
+  class Meta:
+    verbose_name = "Cuarto"
+
   def __unicode__(self):
     return u"%s, %s" % (self.name , self.description)
 
@@ -84,7 +87,7 @@ class Location(TimeStampedModel):
   room         = models.ForeignKey(Room)
   
   class Meta:
-    verbose_name_plural = "Locations"
+    verbose_name = "Ubicacion"
   
   def __unicode__(self):
     return u"%s, %s" % (self.name , self.description)
@@ -111,6 +114,9 @@ class Message(TimeStampedModel):
   description = models.CharField(max_length=100)
   enabled     = models.BooleanField(default=True)
   text        = models.CharField(max_length=100)
+  
+  class Meta:
+    verbose_name = "Mensaje"
   
   def __unicode__(self):
     return u"%s, %s" % (self.name , self.description)
@@ -150,12 +156,16 @@ class Computer(TimeStampedModel):
   memory_size = models.CharField(max_length=80)
   serial_number = models.CharField(max_length=80)
   ip_address    = models.CharField(max_length=80)
+  saludos    = models.CharField(max_length=80)
   switch_port   = models.PositiveIntegerField(null=False)
   # Relationships
   switch        = models.ForeignKey(Switch)
   location     = models.ForeignKey(Location)
   coordinates  = models.CharField(max_length=30)
   
+  class Meta:
+    verbose_name = "Computadora"
+    
   def __unicode__(self):
     return u"%s, %s" % (self.name , self.description)
 
@@ -167,6 +177,9 @@ class Event(TimeStampedModel):
   # Relationships
   switch      = models.ForeignKey(Switch)
   computer    = models.ForeignKey(Computer)
+
+  class Meta:
+    verbose_name = "Evento"
 
   def __unicode__(self):
     return u"%s, %s" % (self.name , self.switch)
@@ -182,6 +195,9 @@ class Employee(User):
   birth_date     = models.DateField(blank=True, null=True)
   contract_date  = models.DateField(default=datetime.datetime.now)
   comments       = models.TextField(blank=True, null=True)
+
+  class Meta:
+    verbose_name = "Empleado"
 
   def __unicode__(self):
     return u"%s, %s" % (self.first_name , self.last_name)

@@ -9,9 +9,12 @@ def port_status_for_community_in_switch(community, switch):
 
   errorIndication, errorStatus, errorIndex, varBindTable = cmdGen.nextCmd(
     # SNMP v2
-    cmdgen.CommunityData('test-agent', community),
+    #cmdgen.CommunityData('test-agent', community),
+    cmdgen.UsmUserData('centinela', 'InsT003H101', 'InsT003H101'),
     # Transport
-    cmdgen.UdpTransportTarget((switch, SWITCH_PORT)), (('IF-MIB', 'ifOperStatus'),),)
+    cmdgen.UdpTransportTarget((switch, SWITCH_PORT)), 
+    (('IF-MIB', 'ifOperStatus'),),
+    )
 
   ports = {}
 
