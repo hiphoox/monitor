@@ -2,6 +2,18 @@
 {% load i18n %}
 {% block title %}{% trans 'Welcome' %}{% endblock %} 
 
+{% block javascript %} 
+<script type="text/javascript">
+
+	var eventos = [
+	  ['{{ titulo }}', 19.330000,-99.180641, 1, '{{ direccion }}', '{{ url }}'],
+	  ['{{ titulo }}', 19.330000,-99.181641, 2, '{{ direccion }}', '{{ url }}']
+	];
+
+</script>
+{% endblock %} 
+
+
 {% block content %} 
 
 	<div class="content">

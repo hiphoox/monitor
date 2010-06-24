@@ -24,8 +24,6 @@ def main_page(request):
     computer = str(event.computer.id)
     url = "/monitor/activities/?institute=" + titulo + ";building=" + building + ";floor=" + floor + ";computer=" + computer 
   
-  
-  
   variables = RequestContext(request, { 
     'user': request.user,
     'titulo': titulo,

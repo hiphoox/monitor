@@ -14,19 +14,7 @@
 	<link rel="stylesheet" href="{% tt_media_prefix %}css/admin-forms.css" type="text/css" />
 	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 	<script type="text/javascript" src="{% tt_media_prefix %}js/maps.js"></script>
-	<script type="text/javascript">
-		var contentString = '<div id="content">'+
-		 '<div id="siteNotice">'+
-		 '</div>'+
-		 '<h1 id="firstHeading" class="firstHeading">{{ titulo }}</h1>'+
-		 '<div id="bodyContent">'+
-		 '<p><b>{{ titulo }}</b>, ' +
-			'{{ direccion }}</p> ' +
-		 '<p><a href="{{ url }}">'+
-		 'Detalle</a></p>'+
-		 '</div>'+
-		 '</div>';
-	</script>
+	{% block javascript %}{% endblock %}
 </head>
 
 <body onload="initialize()" class="frontpage">
