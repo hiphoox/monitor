@@ -16,3 +16,19 @@ http://www.linuxdynasty.org/howto-monitor-redhat-cluster-using-snmp-and-python.h
 http://www.mavetju.org/networking/network-monitoring.php
 
 
+Pantalla principal:
+1) Agrandar icono de no alarma y cambiar a un color con más contraste
+2) Incluir imagen del instituto en la ventana de información en el mapa principal.
+
+
+Pantalla Mapas:
+1) Al inicio poner lista de institutos que se están monitoreando y permitir su selección. Esta selección permitira el despliegue del primer mapa. Después de eso el flujo es identico como si llegaramos por el mapa principal
+2) al seccionar el primer mapa se despliegue el mapa de pisos y después el de detalle de sección.
+
+
+A) En modulo de snmp agregar en la firma del metodo parametros para la captura de unsuario, password y llave
+
+B) Generar reporte que muestre listado de equipo que esta dado de alta en el inventario pero que no esta conectado.
+
+C) Modificar archivo de snmp para que pueda recibir parametros como el snmpwalk
+

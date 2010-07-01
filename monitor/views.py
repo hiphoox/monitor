@@ -11,16 +11,16 @@ from django.contrib.auth.decorators import login_required
 from monitor.models import *
 
 def main_page(request): 
-  events = Event.objects.all()
+  alarms = Alarm.objects.all()
   titulo = ""
   direccion = ""
   url = ""
   
-  for event in events:
-    titulo = event.computer.location.institute
-    direccion = event.computer.location.address
-    building = event.computer.location.building
-    floor = event.computer.location.floor
+  for alarm in alarms:
+    titulo = alarm.computer.location.institute
+    direccion = alarm.computer.location.address
+    building = alarm.computer.location.building
+    floor = alarm.computer.location.floor
     computer = str(event.computer.id)
     url = "/monitor/activities/?institute=" + titulo + ";building=" + building + ";floor=" + floor + ";computer=" + computer 
   
@@ -37,12 +37,21 @@ def main_page(request):
     
 @login_required 
 def activities_page(request):
-  institute = request.GET["institute"];
-  building = request.GET["building"];
-  floor = request.GET["floor"];
-  computer_id = request.GET["computer"];
-  computer = Computer.objects.get(id=computer_id)
-  coordinates = computer.coordinates
+  institute = "institute";
+  building = "building";
+  floor = "floor";
+  coordinates = "";
+  
+  if "institute" in request.GET:
+    institute = request.GET["institute"];
+  if "building" in request.GET:
+    building = request.GET["building"];
+  if "floor" in request.GET:
+    floor = request.GET["floor"];
+  if "computer" in request.GET:
+    computer_id = request.GET["computer"];
+    computer = Computer.objects.get(id=computer_id)
+    coordinates = computer.coordinates
 
   variables = RequestContext(request, { 
     'activities_class': 'active',

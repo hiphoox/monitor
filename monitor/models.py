@@ -156,7 +156,6 @@ class Computer(TimeStampedModel):
   memory_size = models.CharField(max_length=80)
   serial_number = models.CharField(max_length=80)
   ip_address    = models.CharField(max_length=80)
-  saludos    = models.CharField(max_length=80)
   switch_port   = models.PositiveIntegerField(null=False)
   # Relationships
   switch        = models.ForeignKey(Switch)
@@ -177,9 +176,25 @@ class Event(TimeStampedModel):
   # Relationships
   switch      = models.ForeignKey(Switch)
   computer    = models.ForeignKey(Computer)
+  count       = models.PositiveIntegerField(null=False)
 
   class Meta:
     verbose_name = "Evento"
+
+  def __unicode__(self):
+    return u"%s, %s" % (self.name , self.switch)
+
+####################################################################################################
+class Alarm(TimeStampedModel):
+  name        = models.CharField(max_length=80)
+  port_number = models.PositiveIntegerField(null=False)
+  # Relationships
+  switch      = models.ForeignKey(Switch)
+  computer    = models.ForeignKey(Computer)
+  processed   = models.BooleanField(default=False) 
+
+  class Meta:
+    verbose_name = "Alarma"
 
   def __unicode__(self):
     return u"%s, %s" % (self.name , self.switch)
@@ -203,3 +218,17 @@ class Employee(User):
     return u"%s, %s" % (self.first_name , self.last_name)
 
 
+####################################################################################################
+class Monitor(TimeStampedModel):
+  name        = models.CharField(max_length=80)
+  enabled     = models.BooleanField(default=True)
+  # Relationships
+  conf_has_changed = models.BooleanField(default=True)
+  alarm_threshold  = models.PositiveIntegerField(null=False)
+  purge_time       = models.PositiveIntegerField(null=False)  
+
+  class Meta:
+    verbose_name = "Monitor"
+
+  def __unicode__(self):
+    return u"%s" % (self.name)
