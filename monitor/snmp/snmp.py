@@ -1,18 +1,23 @@
 # GETNEXT Command Generator with MIB resolution
-import string
+import string, sys
 from pysnmp.entity.rfc3413.oneliner import cmdgen
+from optparse import OptionParser
 
 # GETNEXT Command Generator with MIB resolution
-def port_status_for_community_in_switch(community, switch):
+def port_status_for_community_in_switch(protocol_version,community, switch, user, password, key):
   SWITCH_PORT = 161
   MAX_PORT_NUMBER = 49
   cmdGen = cmdgen.CommandGenerator()
 
-  errorIndication, errorStatus, errorIndex, varBindTable = cmdGen.nextCmd(
-    # SNMP v2
-    #cmdgen.CommunityData('test-agent', community),
+  if protocol_version == 'v3':
     # SNMP v3
-    cmdgen.UsmUserData('centinela', 'InsT003H101', 'InsT003H101'),
+    protocol = cmdgen.UsmUserData(user, password, key)
+  else:
+    # SNMP v2
+    protocol = cmdgen.CommunityData('test-agent', community)
+  
+  errorIndication, errorStatus, errorIndex, varBindTable = cmdGen.nextCmd(
+    protocol,
     # Transport
     cmdgen.UdpTransportTarget((switch, SWITCH_PORT)), (('IF-MIB', 'ifOperStatus'),),)
 
@@ -38,7 +43,36 @@ def port_status_for_community_in_switch(community, switch):
 
   return ports
 
+def define_options(parser):
+  parser.add_option("-u", "--user", dest="username",
+                    help="User registered in the switch")
+  parser.add_option("-p", "--password",
+                    dest="password",
+                    help="User's password")
+  parser.add_option("-k", "--key",
+                    dest="key",
+                    help="Secret key")
+  parser.add_option("-i", "--ip",
+                    dest="ip",
+                    help="Switch's ip address")
+  parser.add_option("-v", "--protocol",
+                    dest="protocol",
+                    default="v3",
+                    help="Switch's protocol")
+  parser.add_option("-c", "--community",
+                    dest="community",
+                    help="Swithc's community")
+  
   
 if __name__ == "__main__":
-  puertos = port_status_for_community_in_switch('alarmas', '132.248.51.194')
+  parser = OptionParser()
+  define_options(parser)
+  (options, args) = parser.parse_args()
+  puertos = port_status_for_community_in_switch(options.protocol, 
+                                                options.community, 
+                                                options.ip, 
+                                                options.username, 
+                                                options.password, 
+                                                options.key)
+  #puertos = port_status_for_community_in_switch('v3', 'alarmas', '132.248.51.18', 'centinela', 'InsT003H1n1', 'InsT003H1n1')
   print puertos

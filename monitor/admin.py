@@ -11,21 +11,69 @@ from django import forms
 #######################################   Catalogs Admin  ##################################################  
 ############################################################################################################
 class CatalogAdmin(admin.ModelAdmin):
-  list_filter = ('enabled',)
+  date_hierarchy = 'created'
+  list_display  = ('name', 'description','created', 'modified','enabled')
+  list_filter = ('enabled', 'created',)
   save_on_top = True
+  readonly_fields = ('created', 'modified') 
 
-admin.site.register(Area, CatalogAdmin)
+admin.site.register(Area,     CatalogAdmin)
 admin.site.register(Location, CatalogAdmin)
-admin.site.register(Room, CatalogAdmin)
-admin.site.register(MapKey, CatalogAdmin)
-admin.site.register(Message, CatalogAdmin)
+admin.site.register(Room,     CatalogAdmin)
+admin.site.register(MapKey,   CatalogAdmin)
+admin.site.register(Message,  CatalogAdmin)
 
 ############################################################################################################
 #######################################   Models Admin  ##################################################  
 ############################################################################################################
-admin.site.register(Switch)
-admin.site.register(Event)
-admin.site.register(Computer)
+class SwitchAdmin(admin.ModelAdmin):
+  date_hierarchy = 'created'
+  list_display  = ('name', 'description','ip_address', 'protocol_version','ports_number','created', 'modified','enabled')
+  list_filter   = ('protocol_version',)
+  save_on_top   =  True
+  search_fields = ['name', 'description']
+  actions       = 'delete_selected' 
+  readonly_fields = ('created', 'modified') 
+admin.site.register(Switch, SwitchAdmin)
+
+class EventAdmin(admin.ModelAdmin):
+  date_hierarchy = 'created'
+  list_display  = ('name','port_number','switch', 'computer', 'count', 'created', 'modified')
+  list_filter   = ('created',)
+  save_on_top   =  True
+  search_fields = ['name', 'computer']
+  actions       = 'delete_selected' 
+  readonly_fields = ('created', 'modified') 
+admin.site.register(Event, EventAdmin)
+
+class AlarmAdmin(admin.ModelAdmin):
+  date_hierarchy = 'created'
+  list_display  = ('name','port_number','switch', 'computer','processed','created', 'modified')
+  list_filter   = ('created',)
+  save_on_top   =  True
+  search_fields = ['name', 'computer']
+  actions       = 'delete_selected' 
+  readonly_fields = ('created', 'modified') 
+admin.site.register(Alarm, AlarmAdmin)
+
+class ComputerAdmin(admin.ModelAdmin):
+  date_hierarchy = 'created'
+  list_display  = ('name','description','switch', 'ip_address','location','created', 'modified', 'enabled')
+  list_filter   = ('created',)
+  save_on_top   =  True
+  search_fields = ['name', 'description']
+  actions       = 'delete_selected' 
+  readonly_fields = ('created', 'modified') 
+admin.site.register(Computer, ComputerAdmin)
+
+class MonitorAdmin(admin.ModelAdmin):
+  date_hierarchy = 'created'
+  list_display  = ('name','purge_time','alarm_threshold','conf_has_changed','created', 'modified', 'enabled')
+  list_filter   = ('created',)
+  save_on_top   =  True
+  search_fields = ['name']
+  actions       = 'delete_selected' 
+  readonly_fields = ('created', 'modified') 
+admin.site.register(Monitor, MonitorAdmin)
+
 admin.site.register(Employee)
-admin.site.register(Monitor)
-admin.site.register(Alarm)

@@ -1,6 +1,19 @@
-import os, time
+import os, time, logging
 from monitor.models import *
 from monitor.snmp.snmp import *
+import logging.handlers
+
+LOG_FILENAME = 'log.out'
+# Set up a specific logger with our desired output level
+logger = logging.getLogger('MyLogger')
+logger.setLevel(logging.DEBUG)
+
+#File Handler
+#handler = logging.handlers.RotatingFileHandler(LOG_FILENAME, maxBytes=20, backupCount=5)
+#Console handler
+handler = logging.StreamHandler()
+logger.addHandler(handler)
+
 
 class SwitchMonitor:
   '''This variable holds all the initial switch states. 
@@ -23,7 +36,7 @@ class SwitchMonitor:
     monitors = Monitor.objects.filter(enabled=True)
     for monitor in monitors:
       monitor.conf_has_changed = False
-      monitor.save
+      monitor.save()
   
   def validate_monitor_state(self):
     '''We initialize the switchs_to_monitor dictionary to include all the switches and ports to be monitorated.
@@ -33,7 +46,7 @@ class SwitchMonitor:
       self.switchs = Switch.objects.all()
       for switch in self.switchs:
         if (switch.enabled):
-          ports = port_status_for_community_in_switch(switch.community, switch.ip_address)
+          ports = port_status_for_community_in_switch(switch.protocol_version, switch.community, switch.ip_address, switch.user_name, switch.password, switch.encryption_key)
           self.switch_states[switch.identifier] = ports
         
       computers = Computer.objects.filter(enabled=True)
@@ -44,34 +57,44 @@ class SwitchMonitor:
         ports.append(computer.switch_port)
       
       self.reset_monitors() 
+      #Debug section
+      logger.debug("Initial Switch states: ")
+      logger.debug(self.switch_states)
+      logger.debug("Switchs & Ports to monitor: ")
+      logger.debug(self.switchs_to_monitor)
+      logger.debug("Switchs: ")
+      logger.debug(self.switchs)
     
     
   def register_event(self, switch, port):
     key = "%i%i" % (switch.identifier, port)
     local_count = 1
     if key in self.events:
-      (identifier, port, count, time) = self.events[key]
+      (identifier, port, count, new_time) = self.events[key]
       local_count = count + 1
 
     self.events[key] = [switch.identifier, port, local_count, time.time()]
-    print self.events
+    #Debug section
+    logger.debug("Events: ")
+    logger.debug(self.events)
     
     
   def compare_switch_state(self, switch, current, previous, ports_to_monitor):
     """docstring for compare"""    
     for port in ports_to_monitor:
       if current[port] != previous[port]:
+        logger.info("Registering event...")
         self.register_event(switch,port)
-        print "Bravo"
 
   def check_switch_states(self):
     for switch in self.switchs:
       if switch.identifier in self.switchs_to_monitor:
-        current_statuses = port_status_for_community_in_switch(switch.community, switch.ip_address)
-        if len(current_statuses) != 0:
-          previous_statuses = self.switch_states[switch.identifier]
-          ports_to_monitor = self.switchs_to_monitor[switch.identifier]
-          self.compare_switch_state(switch, current_statuses, previous_statuses, ports_to_monitor)
+        if (switch.enabled):
+          current_statuses = port_status_for_community_in_switch(switch.protocol_version, switch.community, switch.ip_address, switch.user_name, switch.password, switch.encryption_key)
+          if len(current_statuses) != 0:
+            previous_statuses = self.switch_states[switch.identifier]
+            ports_to_monitor = self.switchs_to_monitor[switch.identifier]
+            self.compare_switch_state(switch, current_statuses, previous_statuses, ports_to_monitor)
   
   
   def process_events(self):
@@ -93,7 +116,7 @@ class SwitchMonitor:
         computer = Computer.objects.get(switch=switch,switch_port=port)      
         new_event = Event(name=key, port_number=port, switch=switch, computer=computer, count=count)
         new_event.save()
-        print "Archiving event..."
+        logger.info("Archiving event...")
               
       elif count > alarm_threshold:
         self.events.pop(key)        
@@ -102,13 +125,13 @@ class SwitchMonitor:
         new_alarm = Alarm(name=key, port_number=port, switch=switch, computer=computer, processed=False)
         new_alarm.save()
         # send mail. fire alarm
-        print "Creating alarm..."
+        logger.info("Creating alarm...")
     
     
   def start(self):
     while True:
       self.validate_monitor_state()
+      time.sleep(5)
       self.check_switch_states()
       self.process_events()
-      time.sleep(3)
-
+      

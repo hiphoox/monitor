@@ -88,6 +88,7 @@ class Location(TimeStampedModel):
   
   class Meta:
     verbose_name = "Ubicacion"
+    verbose_name_plural = "Ubicaciones"
   
   def __unicode__(self):
     return u"%s, %s" % (self.name , self.description)
@@ -133,6 +134,7 @@ class Switch(TimeStampedModel):
   enabled     = models.BooleanField(default=True)
   identifier  = models.PositiveIntegerField(null=False)
   ip_address  = models.CharField(max_length=80)
+  protocol_version  = models.CharField(max_length=2)
   ports_number = models.PositiveIntegerField(null=False)
   encryption_key = models.CharField(max_length=256)
   password    = models.CharField(max_length=16)
@@ -140,6 +142,9 @@ class Switch(TimeStampedModel):
   community   = models.CharField(max_length=30)
   # Relationships
   location     = models.ForeignKey(Location)
+  
+  class Meta:
+    verbose_name_plural = "Switches"
   
   def __unicode__(self):
     return u"%s, %s" % (self.name , self.description)
@@ -229,6 +234,7 @@ class Monitor(TimeStampedModel):
 
   class Meta:
     verbose_name = "Monitor"
+    verbose_name_plural = "Monitores"
 
   def __unicode__(self):
     return u"%s" % (self.name)
