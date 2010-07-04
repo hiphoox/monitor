@@ -46,31 +46,27 @@ def port_status_for_community_in_switch(protocol_version,community, switch, user
 def define_options(parser):
   parser.add_option("-u", "--user", dest="username",
                     help="User registered in the switch")
-  parser.add_option("-p", "--password",
-                    dest="password",
+  parser.add_option("-p", "--password", dest="password",
                     help="User's password")
-  parser.add_option("-k", "--key",
-                    dest="key",
+  parser.add_option("-k", "--key", dest="key",
                     help="Secret key")
-  parser.add_option("-i", "--ip",
-                    dest="ip",
-                    help="Switch's ip address")
-  parser.add_option("-v", "--protocol",
-                    dest="protocol",
-                    default="v3",
-                    help="Switch's protocol")
-  parser.add_option("-c", "--community",
-                    dest="community",
+  parser.add_option("-c", "--community", dest="community",
                     help="Swithc's community")
   
   
 if __name__ == "__main__":
-  parser = OptionParser()
+  usage = "usage: $python snmp.py ipaddress protocol [options] "
+  parser = OptionParser(usage)
   define_options(parser)
   (options, args) = parser.parse_args()
-  puertos = port_status_for_community_in_switch(options.protocol, 
+  print options
+  print args
+  if len(args) < 2:
+      parser.error("incorrect number of arguments")
+  
+  puertos = port_status_for_community_in_switch(args[1], 
                                                 options.community, 
-                                                options.ip, 
+                                                args[0], 
                                                 options.username, 
                                                 options.password, 
                                                 options.key)

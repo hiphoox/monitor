@@ -33,8 +33,8 @@ FRAMEWORKS
 ----------
 STEPS
 =====
-1. Install python 2.6
-2. Install setuptools
+1. Install python 2.6 (On OSX optional)
+2. Install setuptools (On OSX optional)
 3. Install git
 	
 4. Install pip
@@ -55,24 +55,24 @@ STEPS
 	source /usr/local/bin/virtualenvwrapper.sh
 	export PIP_VIRTUALENV_BASE=$WORKON_HOME`
 
-8. Download alarm
-
-	`$ git clone https://stonefree@github.com/stonefree/monitor.git
-	$ cd alarm`
-
-9. Create & Configure virtualenv. On a new terminal window
+8. Create & Configure virtualenv. On a new terminal window
 
 	`mkdir .virtualenvs
 	mkvirtualenv alarm
 	$ workon alarm`
+
+9. Download alarm
+
+	`$ git clone https://stonefree@github.com/stonefree/monitor.git
+	$ cd alarm`
 	
 10. Install dependencies
 	
-	`pip install -r dependencies`
+	`pip install -r dependencies.txt`
 	
 11. Copy snmp files
 
-	`cp IF-MIB.py IANAifType-MIB.py WORKON_HOME=$HOME/.virtualenvs/alarm/lib/python2.6/site-packages/pysnmp/smi/mibs`
+	`cd monitor/snmp; cp *MIB.py $WORKON_HOME/alarm/lib/python2.6/site-packages/pysnmp/smi/mibs`
 
 12. Install graphviz (optional)
 
@@ -90,6 +90,9 @@ workon alarm`
 `import sys
 from pprint import pprint as pp
 pp(sys.path)`
+
+`git push origin
+git pull origin`
 
 -----------
 SNMP Configuration
