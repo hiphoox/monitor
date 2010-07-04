@@ -59,8 +59,7 @@ if __name__ == "__main__":
   parser = OptionParser(usage)
   define_options(parser)
   (options, args) = parser.parse_args()
-  print options
-  print args
+
   if len(args) < 2:
       parser.error("incorrect number of arguments")
   
