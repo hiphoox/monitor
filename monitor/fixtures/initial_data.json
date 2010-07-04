@@ -1,0 +1,126 @@
+
+[
+    {
+        "pk": 1,
+         "model": "monitor.area",
+         "fields": 
+        {
+            "description": "Descripcion",
+             "enabled": true,
+             "modified": "2010-06-21 21:13:17",
+             "name": "Piso 4",
+             "created": "2010-06-21 21:13:17"
+        }
+    },
+     
+    {
+        "pk": 1,
+         "model": "monitor.room",
+         "fields": 
+        {
+            "description": "Cuarto principal",
+             "enabled": true,
+             "modified": "2010-06-21 21:12:52",
+             "name": "Anexo",
+             "created": "2010-06-21 21:12:52"
+        }
+    },
+     
+    {
+        "pk": 1,
+         "model": "monitor.location",
+         "fields": 
+        {
+            "building": "EP",
+             "description": "Instituto de Matematicas aplicadas y sistemas",
+             "created": "2010-06-21 21:13:46",
+             "institute": "IIMAS",
+             "floor": "PP",
+             "enabled": true,
+             "modified": "2010-06-21 21:13:46",
+             "address": "CIRCUITO ESCOLAR, CIUDAD UNIVERSITARIA, Apartado Postal 20-726, Admon. No. 20, C.P. 01000, Del. Alvaro Obregon",
+             "area": 1,
+             "room": 1,
+             "location_type": "D",
+             "name": "IIMAS"
+        }
+    },
+     
+    {
+        "pk": 1,
+         "model": "monitor.switch",
+         "fields": 
+        {
+            "description": "Este es el primer switch de muestra",
+             "created": "2010-06-21 21:14:02",
+             "ports_number": 24,
+             "enabled": false,
+             "modified": "2010-06-21 21:14:02",
+             "location": 1,
+             "identifier": 1234,
+             "ip_address": "132.248.51.194",
+             "community": "alarmas",
+             "name": "Piso principal"
+        }
+    },
+     
+    {
+        "pk": 2,
+         "model": "monitor.switch",
+         "fields": 
+        {
+            "description": "Postgrado de Matematicas",
+             "created": "2010-06-21 21:14:57",
+             "ports_number": 24,
+             "enabled": true,
+             "modified": "2010-06-21 21:15:09",
+             "location": 1,
+             "identifier": 9876,
+             "ip_address": "132.248.51.18",
+             "protocol_version": "v3",
+             "community": "alarmas",
+             "password": "InsT003H1n1",
+             "encryption_key": "InsT003H1n1",
+             "user_name": "centinela",
+             "name": "Postgrado"
+        }
+    },
+
+    {
+        "pk": 1,
+         "model": "monitor.computer",
+         "fields": 
+        {
+            "description": "Computadora de Hernando",
+             "created": "2010-06-22 14:33:46",
+             "brand": "Mac",
+             "enabled": true,
+             "switch_port": 21,
+             "modified": "2010-06-22 14:33:46",
+             "switch": 2,
+             "memory_size": "2GB",
+             "location": 1,
+             "hd_size": "500GB",
+             "coordinates": "-180px 0px 0px 365px",
+             "serial_number": "123456799",
+             "ip_address": "192.168.1.23",
+             "name": "Goku"
+        }
+    },
+
+    {
+        "pk": 1,
+         "model": "monitor.monitor",
+         "fields": 
+        {
+            "conf_has_changed": true,
+             "enabled": true,
+             "modified": "2010-06-29 13:13:37",
+             "name": "Watcher",
+             "alarm_threshold": 5,
+             "purge_time": 120,             
+             "created": "2010-06-29 13:13:37"
+        }
+    }
+]
+
