@@ -1,0 +1,10 @@
+Django==1.2
+Werkzeug==0.6.2
+django-extensions==0.5
+pyasn1==0.0.11a
+pycrypto==2.1.0
+pygraphviz==0.99.1
+pysnmp==4.1.13a
+python-dateutil==1.5
+vobject==0.8.1c
+wsgiref==0.1.2
