@@ -35,13 +35,8 @@ STEPS
 =====
 1. Install python 2.6
 2. Install setuptools
-
-	`$ wget http://pypi.python.org/packages/2.6/s/setuptools/setuptools-0.6c9-py2.6.egg#md5=ca37b1ff16fa2ede6e19383e7b59245a
-	$ sh setuptools-0.6c9-py2.6.egg`
-
 3. Install git
 	
-
 4. Install pip
 
 	`$ easy_install pip`
@@ -56,24 +51,31 @@ STEPS
 	
 7. Configure environment. In your .bashrc or .profile write down:
 
-	`$ export WORKON_HOME=$HOME/.virtualenvs
-	$ source $VIRTUAL_WRAPPER_DIRECTORY/virtualenvwrapper_bashrc
-	$ export PIP_VIRTUALENV_BASE=$WORKON_HOME`
+	`export WORKON_HOME=$HOME/.virtualenvs
+	source /usr/local/bin/virtualenvwrapper.sh
+	export PIP_VIRTUALENV_BASE=$WORKON_HOME`
 
 8. Download alarm
 
-	`$ hg clone https://hiphoox@bitbucket.org/hiphoox/experior/
-	$ cd experior
-	$ hg co`
+	`$ git clone https://stonefree@github.com/stonefree/monitor.git
+	$ cd alarm`
 
-9. Create & Configure virtualenv
+9. Create & Configure virtualenv. On a new terminal window
 
-	mkdir .virtualenvs
+	`mkdir .virtualenvs
 	mkvirtualenv alarm
+	$ workon alarm`
 	
-	`$ pip install -E my-new-django-env/ -r environment.txt
-	$ workon my-new-django-env`
+10. Install dependencies
 	
+	`pip install -r dependencies`
+	
+11. Copy snmp files
+
+	`cp IF-MIB.py IANAifType-MIB.py WORKON_HOME=$HOME/.virtualenvs/alarm/lib/python2.6/site-packages/pysnmp/smi/mibs`
+
+12. Install graphviz (optional)
+
 Enjoy!!!
 
 ----------
@@ -82,7 +84,7 @@ Daily work
 lssitepackages
 
 `cd alarm
-workon my-new-django-env`
+workon alarm`
 	
 ###Print python path
 `import sys
