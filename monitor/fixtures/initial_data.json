@@ -38,9 +38,9 @@
              "floor": "PP",
              "enabled": true,
              "modified": "2010-06-21 21:13:46",
-             "address": "CIRCUITO ESCOLAR, CIUDAD UNIVERSITARIA, Apartado Postal 20-726, Admon. No. 20, C.P. 01000, Del. Alvaro Obregon",
              "area": 1,
              "room": 1,
+             "address": "CIRCUITO ESCOLAR, CIUDAD UNIVERSITARIA,Apartado Postal 20-726,Admon. No. 20,C.P. 01000,Del. Alvaro Obregon",
              "location_type": "D",
              "name": "IIMAS"
         }
@@ -51,15 +51,19 @@
          "model": "monitor.switch",
          "fields": 
         {
-            "description": "Este es el primer switch de muestra",
+            "password": "",
+             "description": "Este es el primer switch de muestra",
              "created": "2010-06-21 21:14:02",
              "ports_number": 24,
              "enabled": false,
              "modified": "2010-06-21 21:14:02",
+             "community": "alarmas",
+             "encryption_key": "",
              "location": 1,
+             "user_name": "",
+             "protocol_version": "",
              "identifier": 1234,
              "ip_address": "132.248.51.194",
-             "community": "alarmas",
              "name": "Piso principal"
         }
     },
@@ -69,23 +73,23 @@
          "model": "monitor.switch",
          "fields": 
         {
-            "description": "Postgrado de Matematicas",
+            "password": "InsT003H1n1",
+             "description": "Postgrado de Matematicas",
              "created": "2010-06-21 21:14:57",
              "ports_number": 24,
              "enabled": true,
              "modified": "2010-06-21 21:15:09",
+             "community": "alarmas",
+             "encryption_key": "InsT003H1n1",
              "location": 1,
+             "user_name": "centinela",
+             "protocol_version": "v3",
              "identifier": 9876,
              "ip_address": "132.248.51.18",
-             "protocol_version": "v3",
-             "community": "alarmas",
-             "password": "InsT003H1n1",
-             "encryption_key": "InsT003H1n1",
-             "user_name": "centinela",
              "name": "Postgrado"
         }
     },
-
+     
     {
         "pk": 1,
          "model": "monitor.computer",
@@ -93,33 +97,119 @@
         {
             "description": "Computadora de Hernando",
              "created": "2010-06-22 14:33:46",
-             "brand": "Mac",
+             "brand": "Mac mini",
              "enabled": true,
-             "switch_port": 21,
              "modified": "2010-06-22 14:33:46",
+             "coordinates": "-180px 0px 0px 365px",
+             "latitude": "19.330000",
+             "longitude": "-99.180641",
              "switch": 2,
+             "switch_port": 21,
              "memory_size": "2GB",
              "location": 1,
              "hd_size": "500GB",
+             "serial_number": "123456799",
+             "ip_address": "192.168.1.23",
+             "name": "Centinela"
+        }
+    },
+     
+    {
+        "pk": 2,
+        "model": "monitor.computer",
+        "fields": 
+        {
+             "description": "Computadora de Hernando",
+             "created": "2010-06-22 14:33:46",
+             "brand": "iMac",
+             "enabled": true,
+             "modified": "2010-06-22 14:33:46",
              "coordinates": "-180px 0px 0px 365px",
+             "latitude": "19.330001",
+             "longitude": "-99.180642",
+             "switch": 2,
+             "switch_port": 22,
+             "memory_size": "2GB",
+             "location": 1,
+             "hd_size": "500GB",
              "serial_number": "123456799",
              "ip_address": "192.168.1.23",
              "name": "Goku"
         }
     },
-
+     
+    {
+        "pk": 1,
+         "model": "monitor.event",
+         "fields": 
+        {
+            "count": 3,
+             "name": "987621",
+             "created": "2010-07-03 12:16:15",
+             "modified": "2010-07-03 12:16:15",
+             "switch": 2,
+             "computer": 1,
+             "port_number": 21
+        }
+    },
+     
+    {
+        "pk": 2,
+         "model": "monitor.event",
+         "fields": 
+        {
+            "count": 2,
+             "name": "987621",
+             "created": "2010-07-03 13:49:11",
+             "modified": "2010-07-03 13:49:11",
+             "switch": 2,
+             "computer": 1,
+             "port_number": 21
+        }
+    },
+     
+    {
+        "pk": 1,
+         "model": "monitor.alarm",
+         "fields": 
+        {
+            "name": "987621",
+             "created": "2010-07-03 12:13:33",
+             "modified": "2010-07-03 12:13:33",
+             "switch": 2,
+             "computer": 1,
+             "port_number": 21,
+             "processed": false
+        }
+    },
+     
+    {
+        "pk": 2,
+         "model": "monitor.alarm",
+         "fields": 
+        {
+            "name": "987621",
+             "created": "2010-07-04 15:20:02",
+             "modified": "2010-07-04 15:20:02",
+             "switch": 2,
+             "computer": 2,
+             "port_number": 22,
+             "processed": false
+        }
+    },
+     
     {
         "pk": 1,
          "model": "monitor.monitor",
          "fields": 
         {
-            "conf_has_changed": true,
+            "name": "Watcher",
+             "created": "2010-06-29 13:13:37",
              "enabled": true,
-             "modified": "2010-06-29 13:13:37",
-             "name": "Watcher",
+             "modified": "2010-07-04 15:19:21",
              "alarm_threshold": 5,
-             "purge_time": 120,             
-             "created": "2010-06-29 13:13:37"
+             "purge_time": 120,
+             "conf_has_changed": true
         }
     }
 ]

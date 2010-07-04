@@ -155,17 +155,19 @@ class Computer(TimeStampedModel):
   """Computers in the institute"""
   name          = models.CharField(max_length=80)
   description   = models.CharField(max_length=100)
-  enabled     = models.BooleanField(default=True)
+  enabled       = models.BooleanField(default=True)
   brand         = models.CharField(max_length=80)
-  hd_size     = models.CharField(max_length=80)
-  memory_size = models.CharField(max_length=80)
+  hd_size       = models.CharField(max_length=80)
+  memory_size   = models.CharField(max_length=80)
   serial_number = models.CharField(max_length=80)
   ip_address    = models.CharField(max_length=80)
   switch_port   = models.PositiveIntegerField(null=False)
   # Relationships
   switch        = models.ForeignKey(Switch)
-  location     = models.ForeignKey(Location)
-  coordinates  = models.CharField(max_length=30)
+  location      = models.ForeignKey(Location)
+  coordinates   = models.CharField(max_length=30)
+  latitude      = models.DecimalField(max_digits=8,decimal_places=6,null=True)
+  longitude     = models.DecimalField(max_digits=8,decimal_places=6,null=True)
   
   class Meta:
     verbose_name = "Computadora"
@@ -197,13 +199,22 @@ class Alarm(TimeStampedModel):
   switch      = models.ForeignKey(Switch)
   computer    = models.ForeignKey(Computer)
   processed   = models.BooleanField(default=False) 
-
+  
   class Meta:
     verbose_name = "Alarma"
 
   def __unicode__(self):
     return u"%s, %s" % (self.name , self.switch)
 
+  def url(self):
+    titulo = self.computer.location.institute
+    direccion = self.computer.location.address
+    building = self.computer.location.building
+    floor = self.computer.location.floor
+    computer = str(self.computer.id)
+    url = "/monitor/activities/?institute=" + titulo + ";building=" + building + ";floor=" + floor + ";computer=" + computer
+    return url
+    
 
 ####################################################################################################
 class Employee(User):
