@@ -12,7 +12,6 @@
 	<link rel="stylesheet" href="{% tt_media_prefix %}css/basics.css" type="text/css" /> 
 	<link rel="stylesheet" href="{% tt_media_prefix %}css/frontpag.css" type="text/css" /> 
 	<link rel="stylesheet" href="{% tt_media_prefix %}css/admin-forms.css" type="text/css" />
-	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 	<script type="text/javascript" src="{% tt_media_prefix %}js/maps.js"></script>
 	{% block javascript %}{% endblock %}
 </head>
@@ -25,16 +24,16 @@
 				<a href={%url monitor.views.main_page%}>Monitor</a> 
 			</li>
 			<li id="nav-apps" class={{ activities_class }}>
-				<a href={%url monitor.views.activities_page%}>{% trans 'Mapas' %}</a>
+				<a href="/admin">{% trans 'Admin' %}</a>
 			</li>
 			<li id="nav-blog" class={{ reports_class }}>
 				<a href={%url monitor.views.reports_page%}>{% trans 'Reportes' %}</a>
 			</li>
 			<li id="nav-goodies" class={{ misc_class }}>
-				<a href="/admin">{% trans 'Admin' %}</a>
+				<a href={%url monitor.views.activities_page%}>{% trans 'Monitores' %}</a>
 			</li>
 			<li id="nav-about" class={{ about_class }}>
-				<a href={%url monitor.views.about_page%}>{% trans 'Acerca de' %}</a>
+				<a href={%url monitor.views.about_page%}>{% trans 'Alarmas' %}</a>
 			</li>
 			<li id="nav-support" class={{ help_class }}>
 				<a href={%url monitor.views.help_page%}>{% trans 'Ayuda' %}</a>

@@ -3,12 +3,19 @@
 {% block title %}{% trans 'Welcome' %}{% endblock %} 
 
 {% block javascript %} 
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 <script type="text/javascript">
 
-	var eventos = [
-	  ['{{ titulo }}', 19.330000,-99.180641, 1, '{{ direccion }}', '{{ url }}'],
-	  ['{{ titulo }}', 19.330000,-99.181641, 2, '{{ direccion }}', '{{ url }}']
+	var current_alarms = [
+	
+	{% for alarm in alarms %}
+	  ['{{ alarm.computer.location.institute }}', 
+	'{{ alarm.computer.latitude }}','{{ alarm.computer.longitude }}', 1, 
+	'{{ alarm.computer.location.address }}', '{{ alarm.url }}'],
+	{% endfor %}
+	
 	];
+	
 
 </script>
 {% endblock %} 
@@ -19,14 +26,17 @@
 	<div class="content">
 	<div class="pagefragment">
 	
-	  <h2> ¡Bienvenido! </h2>
 	{% if user.username %} 
-        {% trans 'Desde este lugar puedes monitorear tus equipos'%}
-    {% else %} 
-      {% trans 'Anonymous user! You need to '%}
-			<a href={%url django.contrib.auth.views.login%}?next=/>login</a> 
-      {% trans 'before you can monitor and check your computers.'%}
-    {% endif %} 
+  	<h2> ¡Alarmas activadas! </h2>
+		{% for alarm in alarm_list %} 
+			<li><a href={{ alarm.url }}>{{ alarm.computer.name }}</a></li>
+		{% endfor %}
+		</p>
+  {% else %} 
+    {% trans 'Anonymous user! You need to '%}
+	<a href={%url django.contrib.auth.views.login%}?next=/>login</a> 
+    {% trans 'before you can monitor and check your computers.'%}
+  {% endif %} 
 		
 	<div id="main">	
 		<div id="map_canvas" style="width:790px; height:550px"></div>

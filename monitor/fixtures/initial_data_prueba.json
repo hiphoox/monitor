@@ -1,0 +1,949 @@
+
+[
+     
+    {
+        "pk": 1,
+         "model": "monitor.location",
+         "fields": 
+        {
+            "building": "EPSUR",
+             "description": "Instituto de Matematicas aplicadas y sistemas",
+             "created": "2010-06-21 21:13:46",
+             "institute": "IIMAS",
+             "floor": "PP",
+             "enabled": true,
+             "modified": "2010-06-21 21:13:46",
+             "area": 1,
+             "room": 1,
+             "address": "CIRCUITO ESCOLAR, CIUDAD UNIVERSITARIA,Apartado Postal 20-726,Admon. No. 20,C.P. 01000,Del. Alvaro Obregon",
+             "location_type": "D",
+             "name": "IIMAS"
+        }
+    },
+
+
+    {
+        "pk": 1,
+         "model": "monitor.area",
+         "fields": 
+        {
+            "description": "Descripcion",
+             "enabled": true,
+             "modified": "2010-06-21 21:13:17",
+             "name": "Piso 1",
+             "created": "2010-06-21 21:13:17"
+        }
+    },
+
+
+    {
+        "pk": 1,
+         "model": "monitor.room",
+         "fields": 
+        {
+            "description": "Edificio principal",
+             "enabled": true,
+             "modified": "2010-06-21 21:12:52",
+             "name": "Anexo",
+             "created": "2010-06-21 21:12:52"
+        }
+    },
+
+
+
+
+
+
+
+
+
+
+
+    {
+        "pk": 1,
+         "model": "monitor.switch",
+         "fields": 
+        {
+            "password": "InsT003H101",
+             "description": "Computadoras",
+             "created": "2010-06-21 21:14:02",
+             "ports_number": 24,
+             "enabled": false,
+             "modified": "2010-06-21 21:14:02",
+             "community": "alarmas",
+             "encryption_key": "InsT003H101",
+             "location": 1,
+             "user_name": "centinela",
+             "protocol_version": "",
+             "identifier": 11,
+             "ip_address": "132.248.51.194",
+             "name": "DPYE"
+        }
+    },
+
+    {
+        "pk": 2,
+         "model": "monitor.switch",
+         "fields": 
+        {
+            "password": "day4bli7uch4",
+             "description": "Computadoras",
+             "created": "2010-06-21 21:14:02",
+             "ports_number": 48,
+             "enabled": false,
+             "modified": "2010-06-21 21:14:02",
+             "community": "aragon",
+             "encryption_key": "day4bli7uch4",
+             "location": 1,
+             "user_name": "mandelbrot",
+             "protocol_version": "",
+             "identifier": 13,
+             "ip_address": "132.248.51.196",
+             "name": "DIRECCION"
+        }
+    },
+
+  {
+        "pk": 3,
+         "model": "monitor.switch",
+         "fields": 
+        {
+            "password": "nif2mon1rer2",
+             "description": "Computadoras",
+             "created": "2010-06-21 21:14:02",
+             "ports_number": 24,
+             "enabled": false,
+             "modified": "2010-06-21 21:14:02",
+             "community": "murcia",
+             "encryption_key": "nif2mon1rer2",
+             "location": 1,
+             "user_name": "hemingway",
+             "protocol_version": "",
+             "identifier": 21,
+             "ip_address": "132.248.51.197",
+             "name": "MYM"
+        }
+    },
+
+
+ {
+        "pk": 4,
+         "model": "monitor.switch",
+         "fields": 
+        {
+            "password": "julg4ap6ock8",
+             "description": "EA",
+             "created": "2010-06-21 21:14:02",
+             "ports_number": 24,
+             "enabled": false,
+             "modified": "2010-06-21 21:14:02",
+             "community": "cajamarca",
+             "encryption_key": "julg4ap6ock8",
+             "location": 1,
+             "user_name": "laxness",
+             "protocol_version": "",
+             "identifier": 22,
+             "ip_address": "132.248.51.199",
+             "name": "Tercer Piso"
+        }
+    },
+
+
+
+
+ {
+        "pk": 5,
+         "model": "monitor.switch",
+         "fields": 
+        {
+            "password": "rab8podd9ak3",
+             "description": "DISCA",
+             "created": "2010-06-21 21:14:02",
+             "ports_number": 48,
+             "enabled": false,
+             "modified": "2010-06-21 21:14:02",
+             "community": "colipa",
+             "encryption_key": "rab8podd9ak3",
+             "location": 1,
+             "user_name": "neruda",
+             "protocol_version": "",
+             "identifier": 31,
+             "ip_address": "132.248.51.215",
+             "name": "Tercer Piso"
+        }
+    },
+
+
+
+
+ {
+        "pk": 6,
+         "model": "monitor.switch",
+         "fields": 
+        {
+            "password": "rab8podd9ak3",
+             "description": "DISCA",
+             "created": "2010-06-21 21:14:02",
+             "ports_number": 48,
+             "enabled": false,
+             "modified": "2010-06-21 21:14:02",
+             "community": "colipa",
+             "encryption_key": "rab8podd9ak3",
+             "location": 1,
+             "user_name": "neruda",
+             "protocol_version": "",
+             "identifier": 32,
+             "ip_address": "132.248.51.215",
+             "name": "Tercer Piso"
+        }
+    },
+
+
+
+ {
+        "pk": 7,
+         "model": "monitor.switch",
+         "fields": 
+        {
+            "password": "yeurb6eg2at7",
+             "description": "DISCA",
+             "created": "2010-06-21 21:14:02",
+             "ports_number": 24,
+             "enabled": false,
+             "modified": "2010-06-21 21:14:02",
+             "community": "misantla",
+             "encryption_key": "yeurb6eg2at7",
+             "location": 1,
+             "user_name": "beckett",
+             "protocol_version": "",
+             "identifier": 33,
+             "ip_address": "132.248.51.202",
+             "name": "Tercer Piso"
+        }
+    },
+    
+
+ {
+        "pk": 8,
+         "model": "monitor.switch",
+         "fields": 
+        {
+            "password": "aw1corb4yew5",
+             "description": "DISCA",
+             "created": "2010-06-21 21:14:02",
+             "ports_number": 24,
+             "enabled": false,
+             "modified": "2010-06-21 21:14:02",
+             "community": "papantla",
+             "encryption_key": "aw1corb4yew5",
+             "location": 1,
+             "user_name": "nistral",
+             "protocol_version": "",
+             "identifier": 33,
+             "ip_address": "132.248.51.201",
+             "name": "Tercer Piso"
+        }
+    },
+    
+    
+
+
+ {
+        "pk": 9,
+         "model": "monitor.switch",
+         "fields": 
+        {
+            "password": "peig3ev1dil9",
+             "description": "Anexo",
+             "created": "2010-06-21 21:14:02",
+             "ports_number": 24,
+             "enabled": false,
+             "modified": "2010-06-21 21:14:02",
+             "community": "amerindio",
+             "encryption_key": "peig3ev1dil9",
+             "location": 1,
+             "user_name": "lessing",
+             "protocol_version": "",
+             "identifier": 131,
+             "ip_address": "132.248.51.218",
+             "name": "Tercer Piso"
+        }
+    },
+
+
+ {
+        "pk": 10,
+         "model": "monitor.switch",
+         "fields": 
+        {
+            "password": "dug5on3osh3b",
+             "description": "Anexo",
+             "created": "2010-06-21 21:14:02",
+             "ports_number": 48,
+             "enabled": false,
+             "modified": "2010-06-21 21:14:02",
+             "community": "guarani",
+             "encryption_key": "peig3ev1dil9",
+             "location": 1,
+             "user_name": "grunber",
+             "protocol_version": "",
+             "identifier": 132,
+             "ip_address": "132.248.51.219",
+             "name": "Tercer Piso"
+        }
+    },
+
+
+
+ {
+        "pk": 11,
+         "model": "monitor.switch",
+         "fields": 
+        {
+            "password": "siv4ryt7pads",
+             "description": "Anexo",
+             "created": "2010-06-21 21:14:02",
+             "ports_number": 24,
+             "enabled": false,
+             "modified": "2010-06-21 21:14:02",
+             "community": "mapuche",
+             "encryption_key": "siv4ryt7pads",
+             "location": 1,
+             "user_name": "saramago",
+             "protocol_version": "",
+             "identifier": 111,
+             "ip_address": "132.248.51.217",
+             "name": "Segundo Piso"
+        }
+    },
+
+{
+        "pk": 12,
+         "model": "monitor.switch",
+         "fields": 
+        {
+            "password": "eid7nat7ind4",
+             "description": "Anexo",
+             "created": "2010-06-21 21:14:02",
+             "ports_number": 48,
+             "enabled": false,
+             "modified": "2010-06-21 21:14:02",
+             "community": "cauche",
+             "encryption_key": "eid7nat7ind4",
+             "location": 1,
+             "user_name": "soyinka",
+             "protocol_version": "",
+             "identifier": 122,
+             "ip_address": "132.248.51.217",
+             "name": "Segundo Piso"
+        }
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {
+        "pk": 1,
+         "model": "monitor.computer",
+         "fields": 
+        {
+            "description": "Area Secretarial, cubiculo 101",
+             "created": "2010-06-22 14:33:46",
+             "brand": "Dell",
+             "enabled": true,
+             "modified": "2010-06-22 14:33:46",
+             "coordinates": "-200px 0px 0px 200px",
+             "latitude": "19.330000",
+             "longitude": "-99.180641",
+             "switch": 1,
+             "switch_port": 4,
+             "memory_size": "2GB",
+             "location": 1,
+             "hd_size": "500GB",
+             "serial_number": "123456799",
+             "ip_address": "192.168.66.71",
+             "name": "Elida"
+        }
+    },
+
+
+
+
+    {
+        "pk": 3,
+         "model": "monitor.computer",
+         "fields": 
+        {
+            "description": "Cubiculo 103",
+             "created": "2010-06-22 14:33:46",
+             "brand": "Mac mini",
+             "enabled": true,
+             "modified": "2010-06-22 14:33:46",
+             "coordinates": "-180px 0px 0px 365px",
+             "latitude": "19.330000",
+             "longitude": "-99.180641",
+             "switch": 1,
+             "switch_port": 11,
+             "memory_size": "2GB",
+             "location": 1,
+             "hd_size": "500GB",
+             "serial_number": "123456799",
+             "ip_address": "192.168.66.20",
+             "name": "Visitantes"
+        }
+    },
+
+
+    {
+        "pk": 4,
+         "model": "monitor.computer",
+         "fields": 
+        {
+            "description": "Cubiculo 104",
+             "created": "2010-06-22 14:33:46",
+             "brand": "Dell",
+             "enabled": true,
+             "modified": "2010-06-22 14:33:46",
+             "coordinates": "-180px 0px 0px 365px",
+             "latitude": "19.330000",
+             "longitude": "-99.180641",
+             "switch": 1,
+             "switch_port": 17,
+             "memory_size": "2GB",
+             "location": 1,
+             "hd_size": "500GB",
+             "serial_number": "123456799",
+             "ip_address": "192.168.66.60",
+             "name": "Juan"
+        }
+    },
+
+
+
+ {
+        "pk": 5,
+         "model": "monitor.computer",
+         "fields": 
+        {
+            "description": "Cubiculo 105 ",
+             "created": "2010-06-22 14:33:46",
+             "brand": "Dell",
+             "enabled": true,
+             "modified": "2010-06-22 14:33:46",
+             "coordinates": "-180px 0px 0px 365px",
+             "latitude": "19.330000",
+             "longitude": "-99.180641",
+             "switch": 1,
+             "switch_port": 5,
+             "memory_size": "2GB",
+             "location": 1,
+             "hd_size": "500GB",
+             "serial_number": "123456799",
+             "ip_address": "192.168.66.30",
+             "name": "Salvador"
+        }
+    },
+
+
+
+ {
+        "pk": 6,
+         "model": "monitor.computer",
+         "fields": 
+        {
+            "description": "Cubiculo 106 ",
+             "created": "2010-06-22 14:33:46",
+             "brand": "Dell ",
+             "enabled": true,
+             "modified": "2010-06-22 14:33:46",
+             "coordinates": "-180px 0px 0px 365px",
+             "latitude": "19.330000",
+             "longitude": "-99.180641",
+             "switch": 1,
+             "switch_port": 22,
+             "memory_size": "2GB",
+             "location": 1,
+             "hd_size": "500GB",
+             "serial_number": "123456799",
+             "ip_address": "192.168.66.30",
+             "name": "silvia"
+        }
+    },
+
+
+
+ {
+        "pk": 7,
+         "model": "monitor.computer",
+         "fields": 
+        {
+            "description": "Cubiculo 107 ",
+             "created": "2010-06-22 14:33:46",
+             "brand": "Dell ",
+             "enabled": true,
+             "modified": "2010-06-22 14:33:46",
+             "coordinates": "-180px 0px 0px 365px",
+             "latitude": "19.330000",
+             "longitude": "-99.180641",
+             "switch": 1,
+             "switch_port": 21,
+             "memory_size": "2GB",
+             "location": 1,
+             "hd_size": "500GB",
+             "serial_number": "123456799",
+             "ip_address": "192.168.66.32",
+             "name": "Ramses"
+        }
+    },
+
+
+
+ {
+        "pk": 8,
+         "model": "monitor.computer",
+         "fields": 
+        {
+            "description": "Cubiculo 108",
+             "created": "2010-06-22 14:33:46",
+             "brand": "Dell ",
+             "enabled": true,
+             "modified": "2010-06-22 14:33:46",
+             "coordinates": "-180px 0px 0px 365px",
+             "latitude": "19.330000",
+             "longitude": "-99.180641",
+             "switch": 1,
+             "switch_port": 20,
+             "memory_size": "2GB",
+             "location": 1,
+             "hd_size": "500GB",
+             "serial_number": "123456799",
+             "ip_address": "192.168.66.100",
+             "name": "Leticia"
+        }
+    },
+
+
+ {
+        "pk": 9,
+         "model": "monitor.computer",
+         "fields": 
+        {
+            "description": "Cubiculo 109 ",
+             "created": "2010-06-22 14:33:46",
+             "brand": "Dell ",
+             "enabled": true,
+             "modified": "2010-06-22 14:33:46",
+             "coordinates": "-180px 0px 0px 365px",
+             "latitude": "19.330000",
+             "longitude": "-99.180641",
+             "switch": 1,
+             "switch_port": 9,
+             "memory_size": "2GB",
+             "location": 1,
+             "hd_size": "500GB",
+             "serial_number": "123456799",
+             "ip_address": "192.168.66.90",
+             "name": "Paty"
+        }
+    },
+
+
+
+ {
+        "pk": 10,
+         "model": "monitor.computer",
+         "fields": 
+        {
+            "description": "Cubiculo 110 ",
+             "created": "2010-06-22 14:33:46",
+             "brand": "Dell ",
+             "enabled": true,
+             "modified": "2010-06-22 14:33:46",
+             "coordinates": "-180px 0px 0px 365px",
+             "latitude": "19.330000",
+             "longitude": "-99.180641",
+             "switch": 1,
+             "switch_port": 18,
+             "memory_size": "2GB",
+             "location": 1,
+             "hd_size": "500GB",
+             "serial_number": "123456799",
+             "ip_address": "192.168.66.120",
+             "name": "Mogens"
+        }
+    },
+
+
+ {
+        "pk": 11,
+         "model": "monitor.computer",
+         "fields": 
+        {
+            "description": "Cubiculo 111 ",
+             "created": "2010-06-22 14:33:46",
+             "brand": "Dell ",
+             "enabled": true,
+             "modified": "2010-06-22 14:33:46",
+             "coordinates": "-180px 0px 0px 365px",
+             "latitude": "19.330000",
+             "longitude": "-99.180641",
+             "switch": 1,
+             "switch_port": 6,
+             "memory_size": "2GB",
+             "location": 1,
+             "hd_size": "500GB",
+             "serial_number": "123456799",
+             "ip_address": "192.168.66.115",
+             "name": "Raul"
+        }
+    },
+
+
+
+{
+        "pk": 12,
+         "model": "monitor.computer",
+         "fields": 
+        {
+            "description": "Cubiculo 112 ",
+             "created": "2010-06-22 14:33:46",
+             "brand": "Dell ",
+             "enabled": true,
+             "modified": "2010-06-22 14:33:46",
+             "coordinates": "-180px 0px 0px 365px",
+             "latitude": "19.330000",
+             "longitude": "-99.180641",
+             "switch": 1,
+             "switch_port": 16,
+             "memory_size": "2GB",
+             "location": 1,
+             "hd_size": "500GB",
+             "serial_number": "123456799",
+             "ip_address": "192.168.66.140",
+             "name": "Federico"
+        }
+    },
+
+
+{
+        "pk": 13,
+         "model": "monitor.computer",
+         "fields": 
+        {
+            "description": "Cubiculo 113 ",
+             "created": "2010-06-22 14:33:46",
+             "brand": "Dell ",
+             "enabled": true,
+             "modified": "2010-06-22 14:33:46",
+             "coordinates": "-180px 0px 0px 365px",
+             "latitude": "19.330000",
+             "longitude": "-99.180641",
+             "switch": 1,
+             "switch_port": 19,
+             "memory_size": "2GB",
+             "location": 1,
+             "hd_size": "500GB",
+             "serial_number": "123456799",
+             "ip_address": "192.168.66.130",
+             "name": "Eduardo"
+        }
+    },
+{
+        "pk": 14,
+         "model": "monitor.computer",
+         "fields": 
+        {
+            "description": "Cubiculo 114 ",
+             "created": "2010-06-22 14:33:46",
+             "brand": "Dell ",
+             "enabled": true,
+             "modified": "2010-06-22 14:33:46",
+             "coordinates": "-180px 0px 0px 365px",
+             "latitude": "19.330000",
+             "longitude": "-99.180641",
+             "switch": 1,
+             "switch_port": 2,
+             "memory_size": "2GB",
+             "location": 1,
+             "hd_size": "500GB",
+             "serial_number": "123456799",
+             "ip_address": "192.168.66.130",
+             "name": "Alberto"
+        }
+    },
+
+
+{
+        "pk": 15,
+         "model": "monitor.computer",
+         "fields": 
+        {
+            "description": "Cubiculo 115 ",
+             "created": "2010-06-22 14:33:46",
+             "brand": "Dell ",
+             "enabled": true,
+             "modified": "2010-06-22 14:33:46",
+             "coordinates": "-180px 0px 0px 365px",
+             "latitude": "19.330000",
+             "longitude": "-99.180641",
+             "switch": 1,
+             "switch_port": 23,
+             "memory_size": "2GB",
+             "location": 1,
+             "hd_size": "500GB",
+             "serial_number": "123456799",
+             "ip_address": "192.168.66.150",
+             "name": "Lizbeth"
+        }
+    },
+
+
+{
+        "pk": 16,
+         "model": "monitor.computer",
+         "fields": 
+        {
+            "description": "Cubiculo 116 ",
+             "created": "2010-06-22 14:33:46",
+             "brand": "Dell ",
+             "enabled": true,
+             "modified": "2010-06-22 14:33:46",
+             "coordinates": "-180px 0px 0px 365px",
+             "latitude": "19.330000",
+             "longitude": "-99.180641",
+             "switch": 1,
+             "switch_port": 15,
+             "memory_size": "2GB",
+             "location": 1,
+             "hd_size": "500GB",
+             "serial_number": "123456799",
+             "ip_address": "192.168.66.50",
+             "name": "Carlos"
+        }
+    },
+
+
+{
+        "pk": 17,
+         "model": "monitor.computer",
+         "fields": 
+        {
+            "description": "Cubiculo 117 ",
+             "created": "2010-06-22 14:33:46",
+             "brand": "Dell ",
+             "enabled": true,
+             "modified": "2010-06-22 14:33:46",
+             "coordinates": "-180px 0px 0px 365px",
+             "latitude": "19.330000",
+             "longitude": "-99.180641",
+             "switch": 1,
+             "switch_port": 10,
+             "memory_size": "2GB",
+             "location": 1,
+             "hd_size": "500GB",
+             "serial_number": "123456799",
+             "ip_address": "192.168.66.173",
+             "name": "Jose Maria"
+        }
+    },
+
+
+{
+        "pk": 18,
+         "model": "monitor.computer",
+         "fields": 
+        {
+            "description": "Cubiculo 118 ",
+             "created": "2010-06-22 14:33:46",
+             "brand": "Dell ",
+             "enabled": true,
+             "modified": "2010-06-22 14:33:46",
+             "coordinates": "-180px 0px 0px 365px",
+             "latitude": "19.330000",
+             "longitude": "-99.180641",
+             "switch": 1,
+             "switch_port": 1,
+             "memory_size": "2GB",
+             "location": 1,
+             "hd_size": "500GB",
+             "serial_number": "123456799",
+             "ip_address": "192.168.66.180",
+             "name": "Visitantes"
+        }
+    },
+
+
+{
+        "pk": 19,
+         "model": "monitor.computer",
+         "fields": 
+        {
+            "description": "Cubiculo 119 ",
+             "created": "2010-06-22 14:33:46",
+             "brand": "Dell ",
+             "enabled": true,
+             "modified": "2010-06-22 14:33:46",
+             "coordinates": "-180px 0px 0px 365px",
+             "latitude": "19.330000",
+             "longitude": "-99.180641",
+             "switch": 1,
+             "switch_port": 7,
+             "memory_size": "2GB",
+             "location": 1,
+             "hd_size": "500GB",
+             "serial_number": "123456799",
+             "ip_address": "192.168.66.190",
+             "name": "Hernando"
+        }
+    },
+
+{
+        "pk": 20,
+         "model": "monitor.computer",
+         "fields": 
+        {
+            "description": "Cubiculo 120 ",
+             "created": "2010-06-22 14:33:46",
+             "brand": "Dell ",
+             "enabled": true,
+             "modified": "2010-06-22 14:33:46",
+             "coordinates": "-180px 0px 0px 365px",
+             "latitude": "19.330000",
+             "longitude": "-99.180641",
+             "switch": 1,
+             "switch_port": 8,
+             "memory_size": "2GB",
+             "location": 1,
+             "hd_size": "500GB",
+             "serial_number": "123456799",
+             "ip_address": "192.168.66.220",
+             "name": "Ignacio"
+        }
+    },
+
+
+
+{
+        "pk": 21,
+         "model": "monitor.computer",
+         "fields": 
+        {
+            "description": "Cubiculo 120-A ",
+             "created": "2010-06-22 14:33:46",
+             "brand": "Dell ",
+             "enabled": true,
+             "modified": "2010-06-22 14:33:46",
+             "coordinates": "-180px 0px 0px 365px",
+             "latitude": "19.330000",
+             "longitude": "-99.180641",
+             "switch": 1,
+             "switch_port": 14,
+             "memory_size": "2GB",
+             "location": 1,
+             "hd_size": "500GB",
+             "serial_number": "123456799",
+             "ip_address": "192.168.66.200",
+             "name": "Laboratorio"
+        }
+    },
+
+
+
+
+
+
+
+
+     
+    {
+        "pk": 1,
+         "model": "monitor.event",
+         "fields": 
+        {
+            "count": 3,
+             "name": "987621",
+             "created": "2010-07-03 12:16:15",
+             "modified": "2010-07-03 12:16:15",
+             "switch": 2,
+             "computer": 1,
+             "port_number": 21
+        }
+    },
+     
+    {
+        "pk": 2,
+         "model": "monitor.event",
+         "fields": 
+        {
+            "count": 2,
+             "name": "987621",
+             "created": "2010-07-03 13:49:11",
+             "modified": "2010-07-03 13:49:11",
+             "switch": 2,
+             "computer": 1,
+             "port_number": 21
+        }
+    },
+     
+    {
+        "pk": 1,
+         "model": "monitor.alarm",
+         "fields": 
+        {
+            "name": "987621",
+             "created": "2010-07-03 12:13:33",
+             "modified": "2010-07-03 12:13:33",
+             "switch": 2,
+             "computer": 1,
+             "port_number": 21,
+             "processed": false
+        }
+    },
+     
+    {
+        "pk": 2,
+         "model": "monitor.alarm",
+         "fields": 
+        {
+            "name": "987621",
+             "created": "2010-07-04 15:20:02",
+             "modified": "2010-07-04 15:20:02",
+             "switch": 2,
+             "computer": 2,
+             "port_number": 22,
+             "processed": false
+        }
+    },
+     
+    {
+        "pk": 1,
+         "model": "monitor.monitor",
+         "fields": 
+        {
+            "name": "Watcher",
+             "created": "2010-06-29 13:13:37",
+             "enabled": true,
+             "modified": "2010-07-04 15:19:21",
+             "alarm_threshold": 5,
+             "purge_time": 120,
+             "conf_has_changed": true
+        }
+    }
+]
+

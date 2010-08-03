@@ -54,7 +54,8 @@ class Location(TimeStampedModel):
 
   BUILDINGS = (
     (u'EA', u'Edificio Anexo'),
-    (u'EP', u'Edificio Principal'),
+    (u'EPSUR', u'Edificio Principal ala Sur'),
+    (u'EPNORTE', u'Edificio Principal ala Norte'),
   )
 
   FLOORS = (
@@ -81,7 +82,7 @@ class Location(TimeStampedModel):
   floor       = models.CharField(blank=True, null=True, max_length=20, choices=FLOORS)
   location_type  = models.CharField(blank=True, null=True, max_length=20, choices=LOCATION_TYPES)
   enabled     = models.BooleanField(default=True)
-  address     = models.CharField(max_length=100)
+  address     = models.CharField(max_length=200)
   # Relationships
   area         = models.ForeignKey(Area)
   room         = models.ForeignKey(Room)
@@ -162,12 +163,12 @@ class Computer(TimeStampedModel):
   serial_number = models.CharField(max_length=80)
   ip_address    = models.CharField(max_length=80)
   switch_port   = models.PositiveIntegerField(null=False)
-  # Relationships
-  switch        = models.ForeignKey(Switch)
-  location      = models.ForeignKey(Location)
   coordinates   = models.CharField(max_length=30)
   latitude      = models.DecimalField(max_digits=8,decimal_places=6,null=True)
   longitude     = models.DecimalField(max_digits=8,decimal_places=6,null=True)
+  # Relationships
+  switch        = models.ForeignKey(Switch)
+  location      = models.ForeignKey(Location)
   
   class Meta:
     verbose_name = "Computadora"
@@ -180,10 +181,10 @@ class Computer(TimeStampedModel):
 class Event(TimeStampedModel):
   name        = models.CharField(max_length=80)
   port_number = models.PositiveIntegerField(null=False)
+  count       = models.PositiveIntegerField(null=False)
   # Relationships
   switch      = models.ForeignKey(Switch)
   computer    = models.ForeignKey(Computer)
-  count       = models.PositiveIntegerField(null=False)
 
   class Meta:
     verbose_name = "Evento"
@@ -195,10 +196,10 @@ class Event(TimeStampedModel):
 class Alarm(TimeStampedModel):
   name        = models.CharField(max_length=80)
   port_number = models.PositiveIntegerField(null=False)
+  processed   = models.BooleanField(default=False) 
   # Relationships
   switch      = models.ForeignKey(Switch)
   computer    = models.ForeignKey(Computer)
-  processed   = models.BooleanField(default=False) 
   
   class Meta:
     verbose_name = "Alarma"
@@ -212,7 +213,7 @@ class Alarm(TimeStampedModel):
     building = self.computer.location.building
     floor = self.computer.location.floor
     computer = str(self.computer.id)
-    url = "/monitor/activities/?institute=" + titulo + ";building=" + building + ";floor=" + floor + ";computer=" + computer
+    url = "/monitor/about/?institute=" + titulo + ";building=" + building + ";floor=" + floor + ";computer=" + computer
     return url
     
 
@@ -238,7 +239,6 @@ class Employee(User):
 class Monitor(TimeStampedModel):
   name        = models.CharField(max_length=80)
   enabled     = models.BooleanField(default=True)
-  # Relationships
   conf_has_changed = models.BooleanField(default=True)
   alarm_threshold  = models.PositiveIntegerField(null=False)
   purge_time       = models.PositiveIntegerField(null=False)  

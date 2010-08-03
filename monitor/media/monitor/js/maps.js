@@ -10,12 +10,12 @@ function initialize() {
   }; 
   
   var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-  alarm = eventos[0];
-  if (alarm[0] != '') {
-    setMarkers(map, eventos);
+
+  if (current_alarms.length > 0) {
+    setMarkers(map, current_alarms);
   } 
   else {
-    setFlag(map, eventos);
+    setFlag(map, current_alarms);
   }
 }
 
@@ -25,11 +25,12 @@ function setFlag(map, locations) {
   var marker = new google.maps.Marker({
       position: myLatLng,
       map: map,
-      icon: '/site_media/img/alertflag.png',
+      icon: '/site_media/img/flag-icon2.png',
       title: 'IIMAS'
   });
   var infowindow = new google.maps.InfoWindow({
-      content: '<a href="activities">Instituto</a>',
+      content: '<a href="activities">Instituto de Investigaciones en Matematicas Aplicadas y en Sistemas</a> <p>' +
+      '<img src="/site_media/img/info-iimas.png" alt="IIMAS"/> </p>',
   	  maxWidth: 260
   });
   google.maps.event.addListener(marker, 'click', function() {

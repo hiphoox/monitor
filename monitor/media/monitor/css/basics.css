@@ -17,37 +17,43 @@ body {
 }
 
 #detail_map_canvas {
-  margin: 0;
   line-height: 1em;
-  background-color:#888; 
-  width:790px; 
-  height:550px
+  background-color:#FFF; 
+/*  width:790px; */
+/*  height:550px */
+  width:809px; 
+  height:570px 
 }
 
 #institute {
+  margin: 0px 0px 0px 6px;
+  line-height: 10em;
   width:395px; 
   height:200px;
-  background-color:#868; 
+  background-color:#234; 
 }
 
 #building {
   width:395px; 
   height:200px;
-  background-color:#848; 
-	margin: -200px 0 0 395px;
+  background-color:#456; 
+	margin: -199px 0 0 407px;
+/*	margin: -200px 0 0 395px;
+*/
 }
 
 #floor {
+	margin: 15px 0 0 9px;
   width:790px; 
   height:350px;
   background-color:#000; 
 }
 
-#alarm_mark {
-  width:30px; 
-  height:30px;
-  background-color:#ff0000; 
-  opacity: 0.70;	
+#computer_mark {
+  margin: 200px 0px 0px 280px;
+  width:45px; 
+  height:45px;
+  background: url(/site_media/img/alarma.png);
 }
 
 /* @end */
