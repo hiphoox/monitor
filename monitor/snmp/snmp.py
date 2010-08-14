@@ -70,4 +70,5 @@ if __name__ == "__main__":
                                                 options.password, 
                                                 options.key)
   #puertos = port_status_for_community_in_switch('v3', 'alarmas', '132.248.51.18', 'centinela', 'InsT003H1n1', 'InsT003H1n1')
+  #python monitor/snmp/snmp.py 132.248.51.18 v3 -u centinela -p InsT003H1n1 -k InsT003H1n1 -c centinela
   print puertos

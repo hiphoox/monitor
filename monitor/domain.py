@@ -2,6 +2,7 @@ import os, time, logging
 from monitor.models import *
 from monitor.snmp.snmp import *
 import logging.handlers
+import subprocess
 
 LOG_FILENAME = 'log.out'
 # Set up a specific logger with our desired output level
@@ -32,11 +33,13 @@ class SwitchMonitor:
         return True
     return False
 
+
   def reset_monitors(self):
     monitors = Monitor.objects.filter(enabled=True)
     for monitor in monitors:
       monitor.conf_has_changed = False
       monitor.save()
+  
   
   def validate_monitor_state(self):
     '''We initialize the switchs_to_monitor dictionary to include all the switches and ports to be monitorated.
@@ -86,6 +89,7 @@ class SwitchMonitor:
         logger.info("Registering event...")
         self.register_event(switch,port)
 
+
   def check_switch_states(self):
     for switch in self.switchs:
       if switch.identifier in self.switchs_to_monitor:
@@ -95,13 +99,69 @@ class SwitchMonitor:
             previous_statuses = self.switch_states[switch.identifier]
             ports_to_monitor = self.switchs_to_monitor[switch.identifier]
             self.compare_switch_state(switch, current_statuses, previous_statuses, ports_to_monitor)
+          else:
+            print "HOLA MUNDO"
+ 
+ 
+  def stop_alarm(self, computer_id, user):
+    computer = Computer.objects.get(id=int(computer_id))
+    alarms = Alarm.objects.filter(computer=computer)
+    for alarm in alarms:
+      if str(alarm.pid) != 'None':
+        cmd = ['kill', str(alarm.pid)]
+        p = subprocess.Popen(cmd, stdout=subprocess.PIPE)
+        print str(alarm.pid)
+        alarm.processed = True
+        alarm.pid = None
+        alarm.employee = user
+        alarm.save()
+    
+ 
+  def archive_event(self, key, identifier, port, count):
+    self.events.pop(key)  
+    switch = Switch.objects.get(identifier=identifier)
+    computer = Computer.objects.get(switch=switch,switch_port=port)      
+    new_event = Event(name=key, port_number=port, switch=switch, computer=computer, count=count)
+    new_event.save()
+    logger.info("Archiving event...")
+    
+    
+  def alarm_is_ringing(self):
+    alarm_count = Alarm.objects.filter(pid__isnull=False).count()
+    if alarm_count > 0:
+      print alarm_count
+      return True
+    else:
+      print "TODO BIEN"
+      return False
   
+  
+  def fire_alarm(self, key, identifier, port):
+    self.events.pop(key)        
+    switch = Switch.objects.get(identifier=identifier)
+    computer = Computer.objects.get(switch=switch,switch_port=port)  
+    same_alarm = Alarm.objects.filter(computer=computer, processed=False).count()
+    
+    if same_alarm > 0:
+      return 
+    
+    if self.alarm_is_ringing():
+      logger.info("Creating an alarm and just saving it...")
+      new_alarm = Alarm(name=key, port_number=port, switch=switch, computer=computer, processed=False)
+    else :
+      logger.info("Creating and starting the alarm...")
+      cmd = ['./monitor/sound.sh']
+      p = subprocess.Popen(cmd, stdout=subprocess.PIPE)
+      logger.info("Alarm with process id: " + str(p.pid))
+      new_alarm = Alarm(name=key, port_number=port, switch=switch, computer=computer, processed=False, pid=p.pid)
+
+    new_alarm.save()
+    
   
   def process_events(self):
     local_count_index = 2
     alarm_threshold = 5
     purge_time = 3600
-    
     monitors = Monitor.objects.filter(enabled=True)
     for monitor in monitors:
       purge_time = monitor.purge_time
@@ -111,27 +171,22 @@ class SwitchMonitor:
       (identifier, port, count, current_time) = self.events[key]
       #Log and purge events older than one hour
       if time.time() - current_time > purge_time:
-        self.events.pop(key)  
-        switch = Switch.objects.get(identifier=identifier)
-        computer = Computer.objects.get(switch=switch,switch_port=port)      
-        new_event = Event(name=key, port_number=port, switch=switch, computer=computer, count=count)
-        new_event.save()
-        logger.info("Archiving event...")
-              
+        self.archive_event(key, identifier, port, count)          
       elif count > alarm_threshold:
-        self.events.pop(key)        
-        switch = Switch.objects.get(identifier=identifier)
-        computer = Computer.objects.get(switch=switch,switch_port=port)      
-        new_alarm = Alarm(name=key, port_number=port, switch=switch, computer=computer, processed=False)
-        new_alarm.save()
-        # send mail. fire alarm
-        logger.info("Creating alarm...")
+        self.fire_alarm(key, identifier, port)
+
+
+  def sleep(self):
+    monitors = Monitor.objects.filter(enabled=True)
+    for monitor in monitors:
+      sleep_time = monitor.sleep_time
+    time.sleep(sleep_time)
+
     
-    
-  def start(self):
+  def start(self):    
     while True:
       self.validate_monitor_state()
-      time.sleep(5)
+      self.sleep()
       self.check_switch_states()
       self.process_events()
       

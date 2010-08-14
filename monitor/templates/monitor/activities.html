@@ -3,25 +3,27 @@
 
 {% block content %} 
 
-	<div class="content">
-	<div class="pagefragment">
+<div class="content">
+<div class="pagefragment">
 		
-	<h2> ¡Alarmas activadas! </h2>
-	{% for alarm in alarm_list %} 
-		<li><a href={{ alarm.url }}>{{ alarm.computer.name }}</a></li>
-	{% endfor %}
-	</p>
-  	
-	<div style="font-size:17px; font-weight: bold;">  {{ alarm_title }} </div>
+	<form name=companiesForm action="." method=GET >
+		<table>
+		{{ form.as_table }}
+		</table>
+	</form>
+	
 	<div id="detail_map_canvas">
-		<div id="institute" style="{{ institute_style }}" border="1"> </div>
-		<div id="building" style="{{ building_style }}" border="1"> </div>
+		<div id="institute" style="{{ building_style }}" border="1"> </div>
+		<div id="building" style="{{ institute_style }}" border="1"> </div>
 		<div id="floor" style="{{ floor_style }}" border="1"> </div>				
+		{% if computer_title %}
 		<div id="computer_mark" style="{{ computer_mark_style }}">  </div>
+		{% endif %}
 	</div>	
 	
-	</div> <!-- End pagefragment -->	
-	</div>	
+</div> <!-- End pagefragment -->	
+</div>	
+
 {% endblock %} 
 
 

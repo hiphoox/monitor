@@ -2,6 +2,8 @@
 from django.db import models
 from django_extensions.db.models import TimeStampedModel
 from django.contrib.auth.models import User, UserManager
+from django.contrib.auth.models import User
+from django.db.models.signals import post_save  
 import datetime
 
 ####################################################################################################
@@ -200,6 +202,9 @@ class Alarm(TimeStampedModel):
   # Relationships
   switch      = models.ForeignKey(Switch)
   computer    = models.ForeignKey(Computer)
+  pid         = models.PositiveIntegerField(blank=True, null=True)  
+  # Relationships
+  employee    = models.ForeignKey(User,null=True)
   
   class Meta:
     verbose_name = "Alarma"
@@ -218,21 +223,24 @@ class Alarm(TimeStampedModel):
     
 
 ####################################################################################################
-class Employee(User):
+#class Employee(User):
+class UserProfile(models.Model):
+  # This is the only required field
+  user = models.ForeignKey(User, unique=True)
   """
   We use the django authorization model to represent our employess.
   We only define the extra fields required for our alarm system.
   """
   telephone      = models.CharField(blank=True, null=True, max_length=15)
   birth_date     = models.DateField(blank=True, null=True)
-  contract_date  = models.DateField(default=datetime.datetime.now)
+  contract_date  = models.DateField(blank=True, null=True)
   comments       = models.TextField(blank=True, null=True)
 
   class Meta:
     verbose_name = "Empleado"
 
   def __unicode__(self):
-    return u"%s, %s" % (self.first_name , self.last_name)
+    return u"%s, %s" % (self.user.first_name , self.user.last_name)
 
 
 ####################################################################################################
@@ -242,6 +250,7 @@ class Monitor(TimeStampedModel):
   conf_has_changed = models.BooleanField(default=True)
   alarm_threshold  = models.PositiveIntegerField(null=False)
   purge_time       = models.PositiveIntegerField(null=False)  
+  sleep_time       = models.PositiveIntegerField(null=False)  
 
   class Meta:
     verbose_name = "Monitor"

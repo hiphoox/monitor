@@ -16,6 +16,11 @@
 	
 	];
 	
+	function submitform()
+	{
+		document.companiesForm.detener.value='NO';
+		document.companiesForm.submit();
+	}
 
 </script>
 {% endblock %} 
@@ -28,9 +33,12 @@
 	
 	{% if user.username %} 
   	<h2> ¡Alarmas activadas! </h2>
-		{% for alarm in alarm_list %} 
-			<li><a href={{ alarm.url }}>{{ alarm.computer.name }}</a></li>
-		{% endfor %}
+		<form name=companiesForm action="/monitor/about/" method=GET >
+			<table>
+			{{ form.as_table }}
+			</table>
+			<input type="hidden" name="detener" id="id_detener" value={{ alarm_title }}/>
+		</form>
 		</p>
   {% else %} 
     {% trans 'Anonymous user! You need to '%}

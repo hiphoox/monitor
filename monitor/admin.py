@@ -76,4 +76,10 @@ class MonitorAdmin(admin.ModelAdmin):
   readonly_fields = ('created', 'modified') 
 admin.site.register(Monitor, MonitorAdmin)
 
-admin.site.register(Employee)
+#admin.site.register(UserProfile)
+admin.site.unregister(User) 
+class UserProfileInline(admin.StackedInline): 
+    model = UserProfile 
+class UserProfileAdmin(UserAdmin): 
+    inlines = [UserProfileInline] 
+admin.site.register(User, UserProfileAdmin) 

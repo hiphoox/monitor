@@ -3,7 +3,7 @@ PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/gam
 
 #mailx -s "ALARMA DE ROBO" hernando@sigma.iimas.unam.mx < /home/hernando/sistema/alarma/resultadoAlarma 
 contador=0
-while [ $contador -lt 360 ] 
+while [ $contador -lt 111360 ] 
 do
 	if [  -f activaAlarma ]
 	then

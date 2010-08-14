@@ -368,7 +368,7 @@
              "brand": "Dell",
              "enabled": true,
              "modified": "2010-06-22 14:33:46",
-             "coordinates": "-200px 0px 0px 200px",
+             "coordinates": "-125px 0px 0px 200px",
              "latitude": "19.330000",
              "longitude": "-99.180641",
              "switch": 1,
@@ -386,7 +386,7 @@
 
 
     {
-        "pk": 3,
+        "pk": 2,
          "model": "monitor.computer",
          "fields": 
         {
@@ -395,7 +395,7 @@
              "brand": "Mac mini",
              "enabled": true,
              "modified": "2010-06-22 14:33:46",
-             "coordinates": "-180px 0px 0px 365px",
+             "coordinates": "-125px 0px 0px 260px",
              "latitude": "19.330000",
              "longitude": "-99.180641",
              "switch": 1,
@@ -411,7 +411,7 @@
 
 
     {
-        "pk": 4,
+        "pk": 3,
          "model": "monitor.computer",
          "fields": 
         {
@@ -420,7 +420,7 @@
              "brand": "Dell",
              "enabled": true,
              "modified": "2010-06-22 14:33:46",
-             "coordinates": "-180px 0px 0px 365px",
+             "coordinates": "-215px 0px 0px 225px",
              "latitude": "19.330000",
              "longitude": "-99.180641",
              "switch": 1,
@@ -437,7 +437,7 @@
 
 
  {
-        "pk": 5,
+        "pk": 4,
          "model": "monitor.computer",
          "fields": 
         {
@@ -446,7 +446,7 @@
              "brand": "Dell",
              "enabled": true,
              "modified": "2010-06-22 14:33:46",
-             "coordinates": "-180px 0px 0px 365px",
+             "coordinates": "-125px 0px 0px 315px",
              "latitude": "19.330000",
              "longitude": "-99.180641",
              "switch": 1,
@@ -463,7 +463,7 @@
 
 
  {
-        "pk": 6,
+        "pk": 5,
          "model": "monitor.computer",
          "fields": 
         {
@@ -472,7 +472,7 @@
              "brand": "Dell ",
              "enabled": true,
              "modified": "2010-06-22 14:33:46",
-             "coordinates": "-180px 0px 0px 365px",
+             "coordinates": "-215px 0px 0px 275px",
              "latitude": "19.330000",
              "longitude": "-99.180641",
              "switch": 1,
@@ -489,7 +489,7 @@
 
 
  {
-        "pk": 7,
+        "pk": 6,
          "model": "monitor.computer",
          "fields": 
         {
@@ -498,7 +498,7 @@
              "brand": "Dell ",
              "enabled": true,
              "modified": "2010-06-22 14:33:46",
-             "coordinates": "-180px 0px 0px 365px",
+             "coordinates": "-125px 0px 0px 365px",
              "latitude": "19.330000",
              "longitude": "-99.180641",
              "switch": 1,
@@ -515,7 +515,7 @@
 
 
  {
-        "pk": 8,
+        "pk": 9,
          "model": "monitor.computer",
          "fields": 
         {
@@ -524,7 +524,7 @@
              "brand": "Dell ",
              "enabled": true,
              "modified": "2010-06-22 14:33:46",
-             "coordinates": "-180px 0px 0px 365px",
+             "coordinates": "-215px 0px 0px 320px",
              "latitude": "19.330000",
              "longitude": "-99.180641",
              "switch": 1,
@@ -540,7 +540,7 @@
 
 
  {
-        "pk": 9,
+        "pk": 10,
          "model": "monitor.computer",
          "fields": 
         {
@@ -549,7 +549,7 @@
              "brand": "Dell ",
              "enabled": true,
              "modified": "2010-06-22 14:33:46",
-             "coordinates": "-180px 0px 0px 365px",
+             "coordinates": "-125px 0px 0px 410px",
              "latitude": "19.330000",
              "longitude": "-99.180641",
              "switch": 1,
@@ -566,7 +566,7 @@
 
 
  {
-        "pk": 10,
+        "pk": 11,
          "model": "monitor.computer",
          "fields": 
         {
@@ -575,7 +575,7 @@
              "brand": "Dell ",
              "enabled": true,
              "modified": "2010-06-22 14:33:46",
-             "coordinates": "-180px 0px 0px 365px",
+             "coordinates": "-215px 0px 0px 360px",
              "latitude": "19.330000",
              "longitude": "-99.180641",
              "switch": 1,
@@ -591,7 +591,7 @@
 
 
  {
-        "pk": 11,
+        "pk": 12,
          "model": "monitor.computer",
          "fields": 
         {
@@ -600,7 +600,7 @@
              "brand": "Dell ",
              "enabled": true,
              "modified": "2010-06-22 14:33:46",
-             "coordinates": "-180px 0px 0px 365px",
+             "coordinates": "-125px 0px 0px 455px",
              "latitude": "19.330000",
              "longitude": "-99.180641",
              "switch": 1,
@@ -617,7 +617,7 @@
 
 
 {
-        "pk": 12,
+        "pk": 13,
          "model": "monitor.computer",
          "fields": 
         {
@@ -626,7 +626,7 @@
              "brand": "Dell ",
              "enabled": true,
              "modified": "2010-06-22 14:33:46",
-             "coordinates": "-180px 0px 0px 365px",
+             "coordinates": "-215px 0px 0px 410px",
              "latitude": "19.330000",
              "longitude": "-99.180641",
              "switch": 1,
@@ -642,7 +642,7 @@
 
 
 {
-        "pk": 13,
+        "pk": 14,
          "model": "monitor.computer",
          "fields": 
         {
@@ -651,7 +651,7 @@
              "brand": "Dell ",
              "enabled": true,
              "modified": "2010-06-22 14:33:46",
-             "coordinates": "-180px 0px 0px 365px",
+             "coordinates": "-125px 0px 0px 500px",
              "latitude": "19.330000",
              "longitude": "-99.180641",
              "switch": 1,
@@ -665,7 +665,7 @@
         }
     },
 {
-        "pk": 14,
+        "pk": 15,
          "model": "monitor.computer",
          "fields": 
         {
@@ -674,7 +674,7 @@
              "brand": "Dell ",
              "enabled": true,
              "modified": "2010-06-22 14:33:46",
-             "coordinates": "-180px 0px 0px 365px",
+             "coordinates": "-215px 0px 0px 455px",
              "latitude": "19.330000",
              "longitude": "-99.180641",
              "switch": 1,
@@ -690,7 +690,7 @@
 
 
 {
-        "pk": 15,
+        "pk": 16,
          "model": "monitor.computer",
          "fields": 
         {
@@ -715,7 +715,7 @@
 
 
 {
-        "pk": 16,
+        "pk": 17,
          "model": "monitor.computer",
          "fields": 
         {
@@ -724,7 +724,7 @@
              "brand": "Dell ",
              "enabled": true,
              "modified": "2010-06-22 14:33:46",
-             "coordinates": "-180px 0px 0px 365px",
+             "coordinates": "-215px 0px 0px 500px",
              "latitude": "19.330000",
              "longitude": "-99.180641",
              "switch": 1,
@@ -740,7 +740,7 @@
 
 
 {
-        "pk": 17,
+        "pk": 18,
          "model": "monitor.computer",
          "fields": 
         {
@@ -749,7 +749,7 @@
              "brand": "Dell ",
              "enabled": true,
              "modified": "2010-06-22 14:33:46",
-             "coordinates": "-180px 0px 0px 365px",
+             "coordinates": "-125px 0px 0px 590px",
              "latitude": "19.330000",
              "longitude": "-99.180641",
              "switch": 1,
@@ -765,7 +765,7 @@
 
 
 {
-        "pk": 18,
+        "pk": 19,
          "model": "monitor.computer",
          "fields": 
         {
@@ -774,7 +774,7 @@
              "brand": "Dell ",
              "enabled": true,
              "modified": "2010-06-22 14:33:46",
-             "coordinates": "-180px 0px 0px 365px",
+             "coordinates": "-215px 0px 0px 545px",
              "latitude": "19.330000",
              "longitude": "-99.180641",
              "switch": 1,
@@ -790,7 +790,7 @@
 
 
 {
-        "pk": 19,
+        "pk": 20,
          "model": "monitor.computer",
          "fields": 
         {
@@ -799,7 +799,7 @@
              "brand": "Dell ",
              "enabled": true,
              "modified": "2010-06-22 14:33:46",
-             "coordinates": "-180px 0px 0px 365px",
+             "coordinates": "-125px 0px 0px 635px",
              "latitude": "19.330000",
              "longitude": "-99.180641",
              "switch": 1,
@@ -814,7 +814,7 @@
     },
 
 {
-        "pk": 20,
+        "pk": 21,
          "model": "monitor.computer",
          "fields": 
         {
@@ -823,7 +823,57 @@
              "brand": "Dell ",
              "enabled": true,
              "modified": "2010-06-22 14:33:46",
-             "coordinates": "-180px 0px 0px 365px",
+             "coordinates": "-215px 0px 0px 595px",
+             "latitude": "19.330000",
+             "longitude": "-99.180641",
+             "switch": 1,
+             "switch_port": 8,
+             "memory_size": "2GB",
+             "location": 1,
+             "hd_size": "500GB",
+             "serial_number": "123456799",
+             "ip_address": "192.168.66.210",
+             "name": "Visitantes"
+        }
+    },
+
+
+
+{
+        "pk": 22,
+         "model": "monitor.computer",
+         "fields": 
+        {
+            "description": "Cubiculo 119-A ",
+             "created": "2010-06-22 14:33:46",
+             "brand": "Dell ",
+             "enabled": true,
+             "modified": "2010-06-22 14:33:46",
+             "coordinates": "-125px 0px 0px 675px",
+             "latitude": "19.330000",
+             "longitude": "-99.180641",
+             "switch": 1,
+             "switch_port": 14,
+             "memory_size": "2GB",
+             "location": 1,
+             "hd_size": "500GB",
+             "serial_number": "123456799",
+             "ip_address": "192.168.66.200",
+             "name": "Laboratorio"
+        }
+    },
+
+{
+        "pk": 23,
+         "model": "monitor.computer",
+         "fields": 
+        {
+            "description": "Cubiculo 122",
+             "created": "2010-06-22 14:33:46",
+             "brand": "Dell ",
+             "enabled": true,
+             "modified": "2010-06-22 14:33:46",
+             "coordinates": "-215px 0px 0px 650px",
              "latitude": "19.330000",
              "longitude": "-99.180641",
              "switch": 1,
@@ -838,30 +888,6 @@
     },
 
 
-
-{
-        "pk": 21,
-         "model": "monitor.computer",
-         "fields": 
-        {
-            "description": "Cubiculo 120-A ",
-             "created": "2010-06-22 14:33:46",
-             "brand": "Dell ",
-             "enabled": true,
-             "modified": "2010-06-22 14:33:46",
-             "coordinates": "-180px 0px 0px 365px",
-             "latitude": "19.330000",
-             "longitude": "-99.180641",
-             "switch": 1,
-             "switch_port": 14,
-             "memory_size": "2GB",
-             "location": 1,
-             "hd_size": "500GB",
-             "serial_number": "123456799",
-             "ip_address": "192.168.66.200",
-             "name": "Laboratorio"
-        }
-    },
 
 
 
@@ -947,52 +973,3 @@
     }
 ]
 
-
-
-{
-    "pk": 1,
-     "model": "monitor.computer",
-     "fields": 
-    {
-        "description": "Computadora de Hernando",
-         "created": "2010-06-22 14:33:46",
-         "brand": "Mac mini",
-         "enabled": true,
-         "modified": "2010-06-22 14:33:46",
-         "coordinates": "-175px 0px 0px 355px",
-         "latitude": "19.330000",
-         "longitude": "-99.180640",
-         "switch": 2,
-         "switch_port": 21,
-         "memory_size": "2GB",
-         "location": 1,
-         "hd_size": "500GB",
-         "serial_number": "123456799",
-         "ip_address": "192.168.1.23",
-         "name": "Centinela"
-    }
-},
- 
-{
-    "pk": 2,
-    "model": "monitor.computer",
-    "fields": 
-    {
-         "description": "Computadora de Hernando",
-         "created": "2010-06-22 14:33:46",
-         "brand": "iMac",
-         "enabled": true,
-         "modified": "2010-06-22 14:33:46",
-         "coordinates": "-255px 0px 0px 440px",
-         "latitude": "19.330001",
-         "longitude": "-99.180642",
-         "switch": 2,
-         "switch_port": 22,
-         "memory_size": "2GB",
-         "location": 1,
-         "hd_size": "500GB",
-         "serial_number": "123456799",
-         "ip_address": "192.168.1.23",
-         "name": "Goku"
-    }
-},
