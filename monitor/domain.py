@@ -100,7 +100,14 @@ class SwitchMonitor:
             ports_to_monitor = self.switchs_to_monitor[switch.identifier]
             self.compare_switch_state(switch, current_statuses, previous_statuses, ports_to_monitor)
           else:
-            print "HOLA MUNDO"
+            print "Switch unreachable.."
+            switch_status_count = SwitchStatus.objects.filter(switch=switch, checked=False).count()
+            
+            if switch_status_count == 0:
+              switch_status = SwitchStatus(checked=False)
+              switch_status.switch = switch
+              switch_status.save()
+              print "Archiving switch status"            
  
  
   def stop_alarm(self, computer_id, user):

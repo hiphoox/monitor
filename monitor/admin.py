@@ -76,6 +76,17 @@ class MonitorAdmin(admin.ModelAdmin):
   readonly_fields = ('created', 'modified') 
 admin.site.register(Monitor, MonitorAdmin)
 
+class SwitchStatusAdmin(admin.ModelAdmin):
+  date_hierarchy = 'created'
+  list_display  = ('name', 'created', 'modified', 'checked')
+  list_filter   = ('created',)
+  save_on_top   =  True  
+  search_fields = ['created']
+  actions       = 'delete_selected' 
+  readonly_fields = ('created', 'modified') 
+admin.site.register(SwitchStatus, SwitchStatusAdmin)
+
+
 #admin.site.register(UserProfile)
 admin.site.unregister(User) 
 class UserProfileInline(admin.StackedInline): 

@@ -151,7 +151,24 @@ class Switch(TimeStampedModel):
   
   def __unicode__(self):
     return u"%s, %s" % (self.name , self.description)
-   
+
+
+####################################################################################################
+class SwitchStatus(TimeStampedModel):
+  """Switchs"""
+  checked     = models.BooleanField(default=True)
+  # Relationships
+  switch     = models.ForeignKey(Switch)
+  
+  def name(self):
+    return self.switch.name
+
+  class Meta:
+    verbose_name_plural = "Switch Status"  
+    
+  def __unicode__(self):
+    return u"%s, %s" % (self.switch.name , self.switch.description)
+
    
 ####################################################################################################
 class Computer(TimeStampedModel):
