@@ -32,16 +32,29 @@ class AlarmForm(forms.Form):
   alarma.widget.attrs["onchange"]="submitform()" 
   building.widget.attrs["hidden"]=True
   
+def exist_switch_problem():
+  switch_status_count = SwitchStatus.objects.filter(checked=False).count()
+  if switch_status_count > 0:
+    return True
+  return False
+
+def switch_name():
+  switch_status = SwitchStatus.objects.filter(checked=False)
+  return switch_status[0].name()
+  
+  
 def main_page(request): 
   alarms = Alarm.objects.filter(processed=False)  
   form_main = AlarmForm()  
   form_main.fields['alarma'].choices = get_alarms()
-  print form_main
   variables = RequestContext(request, { 
     'alarms': alarms,
     'form': form_main
   })
 #  variables['alarm_list'] = alarms
+  if exist_switch_problem():
+    variables['switch'] = switch_name();
+
   return render_to_response( 
     'monitor/main.html', variables
   )
@@ -53,7 +66,8 @@ def get_images_paths_for(institute, building, floor, computer_id):
   location = "";
   alarm_title = "";
   
-  if(computer_id != ''):
+#  if(computer_id != ''):
+  if computer_is_valid(computer_id):
     computer = Computer.objects.get(id=computer_id)
     
     coordinates = computer.coordinates
@@ -168,7 +182,17 @@ def can_stop(computer_id):
   if alarm_count > 0:
     return True
   return False
-  
+
+def computer_is_valid(computer_id):
+  if computer_id.strip() == '':
+    return False
+  alarmse = Alarm.objects.filter(processed=False)[:10]
+  for alarm in alarmse:
+    if alarm.computer_id == int(computer_id):
+      return True
+  return False
+
+#?alarma=2&institute=IIMAS&building=EPSUR&floor=PP&detener=NO where alarm=2 is not valid
 def about_page(request): 
   institute = "institute";
   building = "";
@@ -191,7 +215,9 @@ def about_page(request):
   images_paths = get_images_paths_for(institute,building,floor,computer_id);
   variables = RequestContext(request, images_paths);
 
-  if institute == "institute":
+  if not computer_is_valid(computer_id):
+    form_about = AlarmForm()
+  elif institute == "institute":
     form_about = AlarmForm()
   elif "detener" in request.GET and "alarma" in request.GET and "NO" != request.GET["detener"] and "" != request.GET["alarma"]:
     form_about = AlarmForm()    

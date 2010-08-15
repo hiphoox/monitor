@@ -1,5 +1,6 @@
 {% extends "monitor/base.html" %} 
 {% load i18n %}
+{% block metatag %}<META HTTP-EQUIV="REFRESH" CONTENT="5">{% endblock %} 
 {% block title %}{% trans 'Welcome' %}{% endblock %} 
 
 {% block javascript %} 
@@ -32,7 +33,9 @@
 	<div class="pagefragment">
 	
 	{% if user.username %} 
-  	<h2> ¡Alarmas activadas! </h2>
+		{% if switch %} 
+  	<h2> ¡Alarmas activadas! </h2> <ul class="errorlist"><li>Aviso! Switch  {{ switch }} no responde.</li></ul>
+	  {% endif %} 
 		<form name=companiesForm action="/monitor/about/" method=GET >
 			<table>
 			{{ form.as_table }}
